@@ -1,0 +1,1 @@
+// This page seeds all the dummy data which will be changed to rails api calls.
