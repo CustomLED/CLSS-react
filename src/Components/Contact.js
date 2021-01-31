@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BackgroundVideo from "./BackgroundVideo.jsx";
 import EnquiryForm from "./EnquiryForm.jsx"
  
 class Contact extends Component {
