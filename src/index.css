@@ -1,7 +1,14 @@
-.active {
-    background-color: #0099FF;
-  }
+.header a:link, a:visited {
+    text-decoration: none;
+    background: none;
+}
 
-.header {
-  font-family: Helvetica, Arial, sans-serif;
+.header a:hover {
+  background-color: #797978; 
+  transition: .5s;
+}
+
+#background-video {
+  z-index: -1;
+  object-fit: cover;
 }

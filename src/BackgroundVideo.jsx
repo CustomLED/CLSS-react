@@ -8,9 +8,11 @@ export default class BackgroundVideo extends React.Component {
             autoPlay
             muted 
             loop
+            id="background-video"
             style={{
                 position: "fixed",
                 width: "100%",
+                height: "100%",
                 opactiy: this.state.loading ? 0 : 1,
                 transition: "opacity, 2s ease-in-out"
             }}

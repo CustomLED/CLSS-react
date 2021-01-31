@@ -12,24 +12,34 @@ import Adminenquiries from "./Components/Adminenquiries";
 import Adminposts from "./Components/Adminposts";
 import Post from "./Components/Post";
 import Posts from "./Components/Posts";
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import BackgroundVideo from "./BackgroundVideo.jsx";
  
 class Main extends Component {
   render() {
     return (
     <HashRouter>
         <div>
-          <nav className="header">
-            <li><NavLink exact to="/">Home</NavLink></li>
-            <li><NavLink to="/about">About</NavLink></li>
-            <li><NavLink to="/gallery">Gallery</NavLink></li>
-            <li><NavLink to="/contact">Contact</NavLink></li>
-            <li><NavLink to="/adminenquiries">Admin Enquiry</NavLink></li>
-            <li><NavLink to="/adminposts">Admin Posts</NavLink></li>
-            <li><NavLink to="/post">A Single Post</NavLink></li>
-            <li><NavLink to="/posts">Many Posts</NavLink></li>
+          <BackgroundVideo />
+          <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" fixed="top" className="header">
+            <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+            <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto nav-fill w-100">
+            <Nav.Link><NavLink exact to="/" className="nav-link">HOME</NavLink></Nav.Link>
+            <Nav.Link><NavLink to="/about" className="nav-link">ABOUT</NavLink></Nav.Link>
+            <Nav.Link><NavLink to="/gallery" className="nav-link">GALLERY</NavLink></Nav.Link>
+            <Nav.Link><NavLink to="/contact" className="nav-link">CONTACT</NavLink></Nav.Link>
+            
+            </Nav>
+            </Navbar.Collapse>
+            {/* <Nav.Link><NavLink to="/adminenquiries">Admin Enquiry</NavLink></Nav.Link>
+            <Nav.Link><NavLink to="/adminposts">Admin Posts</NavLink></Nav.Link>
+            <Nav.Link><NavLink to="/post">A Single Post</NavLink></Nav.Link>
+            <Nav.Link><NavLink to="/posts">Many Posts</NavLink></Nav.Link> */}
 
 
-          </nav> 
+          </Navbar> 
           <div className="content">
              <Route exact path="/" component={Home}/>
              <Route path="/about" component={About}/>
@@ -40,8 +50,12 @@ class Main extends Component {
              <Route path="/post" component={Post}/>
              <Route path="/posts" component={Posts}/>
 
+
+
           </div>
         </div>
+
+
     </HashRouter>
     );
   }
