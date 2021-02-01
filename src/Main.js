@@ -1,9 +1,13 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
+import React,{useState, useReducer, useEffect} from 'react'
 import {
   Route,
   NavLink,
   HashRouter
 } from "react-router-dom";
+import {getPosts} from './Services/postServices'
+import stateReducer from './utils/stateReducer'
+import {StateContext} from './utils/stateContext'
 import Home from "./Components/Home";
 import Gallery from "./Components/Gallery";
 import Contact from "./Components/Contact";
@@ -13,11 +17,24 @@ import Adminposts from "./Components/Adminposts";
 import Post from "./Components/Post";
 import Posts from "./Components/Posts";
  
-class Main extends Component {
-  render() {
+
+const Main = () => {
+	const initialState = {
+		posts: [],
+		loggedInUser: null,
+		auth: {token: null}
+  }
+  const [store, dispatch] = useReducer(stateReducer,initialState)
+	useEffect(() => {
+    getPosts()
+		.then((posts) => dispatch({type: 'setPosts', data: posts}))
+		.catch((error) => console.log(error))
+  },[])
+
     return (
     <HashRouter>
         <div>
+          <StateContext.Provider value={{store,dispatch}}>
           <h1>SPA</h1>
           <ul className="header">
             <li><NavLink exact to="/">Home</NavLink></li>
@@ -42,10 +59,11 @@ class Main extends Component {
              <Route path="/posts" component={Posts}/>
 
           </div>
-        </div>
-    </HashRouter>
+          </StateContext.Provider>
+         </div>
+        </HashRouter>
     );
-  }
 }
+
  
 export default Main;
