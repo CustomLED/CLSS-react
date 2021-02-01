@@ -12,6 +12,7 @@ import Adminenquiries from "./Components/Adminenquiries";
 import Adminposts from "./Components/Adminposts";
 import Post from "./Components/Post";
 import Posts from "./Components/Posts";
+import postAPI from "./Services/postServices";
  
 class Main extends Component {
   render() {
@@ -20,7 +21,7 @@ class Main extends Component {
         <div>
           <h1>SPA</h1>
           <ul className="header">
-            <li><NavLink exact to="/">Home</NavLink></li>
+            <li><NavLink exact to="/" replace>Home</NavLink></li>
             <li><NavLink to="/about">About</NavLink></li>
             <li><NavLink to="/gallery">Gallery</NavLink></li>
             <li><NavLink to="/contact">Contact</NavLink></li>
