@@ -1,9 +1,13 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
+import React,{useState, useReducer, useEffect} from 'react'
 import {
   Route,
   NavLink,
   HashRouter
 } from "react-router-dom";
+import {getPosts} from './Services/postServices'
+import stateReducer from './utils/stateReducer'
+import {StateContext} from './utils/stateContext'
 import Home from "./Components/Home";
 import Gallery from "./Components/Gallery";
 import Contact from "./Components/Contact";
@@ -17,11 +21,24 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import BackgroundVideo from "./BackgroundVideo.jsx";
  
-class Main extends Component {
-  render() {
+
+const Main = () => {
+	const initialState = {
+		posts: [],
+		loggedInUser: null,
+		auth: {token: null}
+  }
+  const [store, dispatch] = useReducer(stateReducer,initialState)
+	useEffect(() => {
+    getPosts()
+		.then((posts) => dispatch({type: 'setPosts', data: posts}))
+		.catch((error) => console.log(error))
+  },[])
+
     return (
     <HashRouter>
         <div>
+          <StateContext.Provider value={{store,dispatch}}>
           <BackgroundVideo />
           <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" fixed="top" className="header">
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
@@ -40,6 +57,7 @@ class Main extends Component {
             <Nav.Link><NavLink to="/posts">Many Posts</NavLink></Nav.Link> */}
 
 
+
           </Navbar> 
           <div className="content">
              <Route exact path="/" component={Home}/>
@@ -54,12 +72,15 @@ class Main extends Component {
 
 
           </div>
+          </StateContext.Provider>
+         </div>
+        </HashRouter>
         </div>
 
 
     </HashRouter>
     );
-  }
 }
+
  
 export default Main;
