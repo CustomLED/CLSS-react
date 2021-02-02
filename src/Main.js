@@ -75,10 +75,10 @@ const Main = () => {
           </StateContext.Provider>
          </div>
         </HashRouter>
-        </div>
+        
 
 
-    </HashRouter>
+   
     );
 }
 

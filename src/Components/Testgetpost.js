@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
 
 // componentDidMount() {
 //     // Simple GET request using fetch
