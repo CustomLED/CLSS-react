@@ -12,6 +12,7 @@ import Adminenquiries from "./Components/Adminenquiries";
 import Adminposts from "./Components/Adminposts";
 import Post from "./Components/Post";
 import Posts from "./Components/Posts";
+import postAPI from "./Services/postServices";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import BackgroundVideo from "./BackgroundVideo.jsx";
