@@ -32,3 +32,4 @@ export async function getPost(id) {
 	// const post = posts.find(post => post.id == id)
 	// return post ? transformPost(post) : null
 }
+
