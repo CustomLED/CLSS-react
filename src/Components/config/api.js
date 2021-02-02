@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const postAPI = axios.create({
-    baseURL: 'http://localhost:3001'
+    baseURL: 'http://clss-api.herokuapp.com'
 })
 
 export default postAPI;
