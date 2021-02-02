@@ -25,8 +25,8 @@ export default function Post({post,index}) {
 	if (!post) return null
 	
 	return (
-	
-			<p>{post.body}</p>
-	
+		
+			<p>{post.body}</p>	
+		
 	)
 }

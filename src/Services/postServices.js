@@ -28,7 +28,7 @@ export async function getPosts() {
 export async function getPost(id) {
     const response = await postAPI.get(`/api/posts/${id}`)
     return response.data
-
+    // old code
 	// const post = posts.find(post => post.id == id)
 	// return post ? transformPost(post) : null
 }
