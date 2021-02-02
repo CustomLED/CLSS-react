@@ -48,13 +48,13 @@ const Main = () => {
             <Nav.Link><NavLink to="/about" className="nav-link">ABOUT</NavLink></Nav.Link>
             <Nav.Link><NavLink to="/gallery" className="nav-link">GALLERY</NavLink></Nav.Link>
             <Nav.Link><NavLink to="/contact" className="nav-link">CONTACT</NavLink></Nav.Link>
+            <Nav.Link><NavLink to="/post">A Single Post</NavLink></Nav.Link>
+            <Nav.Link><NavLink to="/adminenquiries">Admin Enquiry</NavLink></Nav.Link>
+            <Nav.Link><NavLink to="/adminposts">Admin Posts</NavLink></Nav.Link>
+            <Nav.Link><NavLink to="/posts">Many Posts</NavLink></Nav.Link>
             
             </Nav>
             </Navbar.Collapse>
-            {/* <Nav.Link><NavLink to="/adminenquiries">Admin Enquiry</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/adminposts">Admin Posts</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/post">A Single Post</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/posts">Many Posts</NavLink></Nav.Link> */}
 
 
 
@@ -75,10 +75,6 @@ const Main = () => {
           </StateContext.Provider>
          </div>
         </HashRouter>
-        </div>
-
-
-    </HashRouter>
     );
 }
 
