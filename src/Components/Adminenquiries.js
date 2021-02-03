@@ -49,16 +49,19 @@ export default function Enquiries() {
 	const {store} = useGlobalState()
     const {enquiries} = store
     // if(!posts) return null
-    console.log(enquiries)
+    // console.log(enquiries)
 
 	return  (
 		<div>
-           {Enquiries.map((enquiries,index) => {
+           {enquiries.map((enquiries,index) => {
 				return (
 					// <div key={post.id} to={`/posts/${post.id}`}>
 					// 	<Post index={index} post={post} />
-                    // </div>
-                    <div> index={index} enquiries={enquiries.name} </div>
+					// </div>
+					<li key={enquiries.id}>
+                        <Link to={`/adminenquiries/${enquiries.id}`}>{enquiries.first_name} {enquiries.last_name} {enquiries.organisation} {enquiries.phone_number} {enquiries.email} {enquiries.description} {enquiries.admin}</Link>
+                    </li>
+                    // <div> index={index} enquiries={enquiries.name} </div>
 				)
 			})}
 		</div>
