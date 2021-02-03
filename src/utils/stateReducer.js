@@ -1,3 +1,4 @@
+
 export default function reducer (state, action) {
 	switch(action.type) {
 		case 'setPosts':{
@@ -31,6 +32,39 @@ export default function reducer (state, action) {
 			}
 
 		}
+
+		case 'setEnquiries':{
+			return {
+				...state,
+				enquiries: action.data
+			}
+		}
+		case 'addEnquiries': {
+			return {
+				...state,
+				enquiries: [action.data, ...state.enquiries]
+			}
+		}
+		case 'deleteEnquiries': {
+			const updatedEnquiries = state.enquiries.filter((enquiries) => {
+				return enquiries.id !== parseInt(action.data)
+			})
+			return {
+				...state,
+				post: updatedEnquiries
+			}
+		}
+		case 'updateEnquiries': {
+			const enquiries = state.enquiries.find((enquiries) => enquiries.id == action.data.id)
+			const theRest = state.enquiries.filter((enquiries) => enquiries.id != action.data.id)
+			const updatedEnquiries = Object.assign(enquiries, action.data)
+			return {
+				...state,
+				enquiries: [updatedEnquiries, ...theRest]
+			}
+
+		}
+
 		case 'setLoggedInUser': {
 			return {
 				...state,
