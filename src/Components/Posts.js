@@ -41,7 +41,7 @@ export default function Posts() {
 					// 	<Post index={index} post={post.name} />
                     // </Link>
                     <li key={post.id}>
-                        <Link to={`/post/${post.id}`}>{post.name}</Link>
+                        <Link to={`/post/${post.id}`}>{post.name} {post.text} {post.admin}</Link>
                     </li>
                     // <div> index={index} post={post.name} </div>
 				)

@@ -59,7 +59,7 @@ export default function Enquiries() {
 					// 	<Post index={index} post={post} />
 					// </div>
 					<li key={enquiries.id}>
-                        <Link to={`/adminenquiries/${enquiries.id}`}>{enquiries.first_name} {enquiries.last_name}</Link>
+                        <Link to={`/adminenquiries/${enquiries.id}`}>{enquiries.first_name} {enquiries.last_name} {enquiries.organisation} {enquiries.phone_number} {enquiries.email} {enquiries.description} {enquiries.admin}</Link>
                     </li>
                     // <div> index={index} enquiries={enquiries.name} </div>
 				)
