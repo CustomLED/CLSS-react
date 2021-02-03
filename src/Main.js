@@ -32,25 +32,34 @@ const Main = () => {
   }
   
   const [store, dispatch] = useReducer(stateReducer,initialState)
-	// useEffect(() => {
-  //   getPosts()
-		// .then((posts) => dispatch({type: 'setPosts', data: posts}))
-		// .catch((error) => console.log(error))
-  // },[]),
+	useEffect(() => {
+    getPosts()
+		.then((posts) => dispatch({type: 'setPosts', data: posts}))
+		.catch((error) => console.log(error))
+  },[])
+
+  useEffect(() => {
+    getEnquiries()
+		.then((enquiries) => dispatch({type: 'setEnquiries', data: enquiries}))
+		.catch((error) => console.log(error))
+  },[])
+
+  //wrong syntax
   // useEffect(() => {
   //   getEnquiries()
 	// 	.then((enquiries) => dispatch({type: 'setEnquiries', data: enquiries}))
 	// 	.catch((error) => console.log(error))
   // },[])
 
-   useEffect(async () => {
-    getPosts()
-     const posts = await getPosts
-     dispatch({type: 'getPosts', data: posts})
-    getEnquiries()
-    const queries = await getEnquiries
-    dispatch({type: 'getEnquiries', data: queries})
-  }, [])
+  //kinda works but doesn't actully. doesn;t show posts
+  //  useEffect(async () => {
+  //   getPosts()
+  //    const posts = await getPosts
+  //    dispatch({type: 'getPosts', data: posts})
+  //   getEnquiries()
+  //   const queries = await getEnquiries
+  //   dispatch({type: 'getEnquiries', data: queries})
+  // }, [])
 
 //   useEffect(() => {
 //     getPosts()

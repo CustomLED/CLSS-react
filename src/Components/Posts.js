@@ -22,7 +22,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 // import styled from 'styled-components'
-import Post from './Post'
+// import Post from './Post'
 import {useGlobalState} from '../utils/stateContext'
 // import getPosts from '../Services/postServices'
 
@@ -48,4 +48,4 @@ export default function Posts() {
 			})}
 		</div>
 	)
-
+		}
