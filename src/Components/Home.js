@@ -3,11 +3,8 @@ import React, { Component } from "react";
 class Home extends Component {
   render() {
     return (
-      <div>
-        <h2>This is a test title</h2>
-        <p>Paragraph testing goes here...</p>
- 
-        <p>Many of life's failures are people who did not realize how close they were to success when they gave up.</p>
+      <div id="home-table">
+        <img src="https://res.cloudinary.com/custom-led-screen-solutions/image/upload/v1612337234/CLSS/clss-logo_cppcam.png" id="home-img" />
       </div>
     );
   }

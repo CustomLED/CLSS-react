@@ -16,6 +16,20 @@ a:visited {
   font-family: "Noto Sans KR", sans-serif;
 }
 
+#home-table {
+  background-color:  rgb(123, 106, 106, 0.3);
+  text-align: center;
+  margin: 5rem;
+}
+
+#home-img {
+padding: 2.5rem;
+margin: auto;
+display: block;
+height: 70%;
+width: 70%;
+}
+
 /* Fitting background video to page and rendering */
 #background-video {
   z-index: -1;
