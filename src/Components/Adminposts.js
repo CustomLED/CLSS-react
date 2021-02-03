@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 // This page is for stephen to edit posts through admin user
  
 class Adminposts extends Component {
@@ -10,7 +11,10 @@ class Adminposts extends Component {
         <ol>
           <li>In here we will pull the Admin posts from postgresql rails api</li>
         </ol>
-      </div>
+            <div id="container" style={{border: "1px solid"}}>
+            
+            </div>
+        </div>
     );
   }
 }
