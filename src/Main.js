@@ -6,7 +6,7 @@ import {
   HashRouter
 } from "react-router-dom";
 import {getPosts} from './Services/postServices'
-
+import {getEnquiries} from './Services/enquiryServices'
 import stateReducer from './utils/stateReducer'
 import {StateContext} from './utils/stateContext'
 import Home from "./Components/Home";
@@ -25,17 +25,41 @@ import BackgroundVideo from "./BackgroundVideo.jsx";
 
 const Main = () => {
 	const initialState = {
-		posts: [],
+    posts: [],
+    enquiries: [],
 		loggedInUser: null,
 		auth: {token: null}
   }
   
   const [store, dispatch] = useReducer(stateReducer,initialState)
-	useEffect(() => {
+	// useEffect(() => {
+  //   getPosts()
+		// .then((posts) => dispatch({type: 'setPosts', data: posts}))
+		// .catch((error) => console.log(error))
+  // },[]),
+  // useEffect(() => {
+  //   getEnquiries()
+	// 	.then((enquiries) => dispatch({type: 'setEnquiries', data: enquiries}))
+	// 	.catch((error) => console.log(error))
+  // },[])
+
+   useEffect(async () => {
     getPosts()
-		.then((posts) => dispatch({type: 'setPosts', data: posts}))
-		.catch((error) => console.log(error))
-  },[])
+     const posts = await getPosts
+     dispatch({type: 'getPosts', data: posts})
+    getEnquiries()
+    const queries = await getEnquiries
+    dispatch({type: 'getEnquiries', data: queries})
+  }, [])
+
+//   useEffect(() => {
+//     getPosts()
+//     //  .then(posts => {
+//     //     setPosts(result.posts);
+//     //  })
+//     .then((posts) => dispatch({type: 'setPosts', data: posts}))
+//      .catch(console.error)
+// }, [setPosts]);
 
     return (
     <HashRouter>

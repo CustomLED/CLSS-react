@@ -1,4 +1,4 @@
-// This page seeds all the dummy data which will be changed to rails api calls.
+// This page seeds all the dummy data which will be changed to pull data from the rails api.
 import postAPI from '../Components/config/api'
 
 // const posts = [
@@ -34,6 +34,7 @@ export async function getPost(id) {
 	// return post ? transformPost(post) : null
 }
 
+
 export async function createPost(post) {
 	return post
 }
@@ -47,4 +48,5 @@ export async function updatePost(post) {
 	return post
 	
 }
+
 
