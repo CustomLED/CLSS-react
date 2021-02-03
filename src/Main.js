@@ -77,6 +77,7 @@ const Main = () => {
           </StateContext.Provider>
          </div>
         </HashRouter>
+
     );
 }
 
