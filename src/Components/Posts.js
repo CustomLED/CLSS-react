@@ -37,13 +37,15 @@ export default function Posts() {
 		<div>
            {posts.map((post,index) => {
 				return (
-					// <div key={post.id} to={`/posts/${post.id}`}>
-					// 	<Post index={index} post={post} />
-                    // </div>
-                    <div> index={index} post={post.name} </div>
+					// <Link key={post.id} to={`/posts/${post.id}`}>
+					// 	<Post index={index} post={post.name} />
+                    // </Link>
+                    <li key={post.id}>
+                        <Link to={`/post/${post.id}`}>{post.name}</Link>
+                    </li>
+                    // <div> index={index} post={post.name} </div>
 				)
 			})}
 		</div>
 	)
-	
-}
+

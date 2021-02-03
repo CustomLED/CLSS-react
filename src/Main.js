@@ -30,6 +30,7 @@ const Main = () => {
 		loggedInUser: null,
 		auth: {token: null}
   }
+  
   const [store, dispatch] = useReducer(stateReducer,initialState)
 	// useEffect(() => {
   //   getPosts()
@@ -91,8 +92,8 @@ const Main = () => {
              <Route path="/contact" component={Contact}/>
              <Route path="/adminenquiries" component={Adminenquiries}/>
              <Route path="/adminposts" component={Adminposts}/>
-             <Route path="/post" component={Post}/>
-             <Route path="/posts" component={Posts}/>
+             <Route exact path="/posts" component={Posts}/>
+             <Route path="/post/:id" component={Post}/>
 
 
 
@@ -100,8 +101,6 @@ const Main = () => {
           </StateContext.Provider>
          </div>
         </HashRouter>
-        
-
 
     );
 }
