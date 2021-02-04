@@ -44,7 +44,7 @@ export default function NewPost() {
 			updatePost( {id: id, ...formState})
 			.then(() => {
 				dispatch({type: 'updatePost', data: {id: id, ...formState}})
-				history.push(`/post/${id}`)
+				// history.push(`/post/${id}`)
 				history.push('/posts')
 			})
 		}
