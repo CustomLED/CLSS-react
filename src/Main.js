@@ -21,6 +21,8 @@ import postAPI from "./Services/postServices";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import BackgroundVideo from "./BackgroundVideo.jsx";
+import {signOut} from './Services/authServices'
+import Navi from './Components/Navi'
  
 
 const Main = () => {
@@ -74,42 +76,21 @@ const Main = () => {
     <HashRouter>
         <div>
           <StateContext.Provider value={{store,dispatch}}>
-          <BackgroundVideo />
-          <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" fixed="top" className="header">
-            <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-            <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto nav-fill w-100">
-            <Nav.Link><NavLink exact to="/" className="nav-link">HOME</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/about" className="nav-link">ABOUT</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/gallery" className="nav-link">GALLERY</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/contact" className="nav-link">CONTACT</NavLink></Nav.Link>
-            
-            </Nav>
-            </Navbar.Collapse>
-            {/* <Nav.Link><NavLink to="/adminenquiries">Admin Enquiry</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/adminposts">Admin Posts</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/post">A Single Post</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/posts">Many Posts</NavLink></Nav.Link> */}
-
-
-
-          </Navbar> 
-          <div className="content">
-             <Route exact path="/" component={Home}/>
-             <Route path="/about" component={About}/>
-             <Route path="/gallery" component={Gallery}/>
-             <Route path="/contact" component={Contact}/>
-             <Route path="/adminenquiries" component={Adminenquiries}/>
-             <Route path="/adminposts" component={Adminposts}/>
-             <Route exact path="/posts" component={Posts}/>
-             <Route path="/post/:id" component={Post}/>
-
-
-
-          </div>
+            <BackgroundVideo />
+              <Navi/>
+                <div className="content">
+                  <Route exact path="/" component={Home}/>
+                  <Route path="/about" component={About}/>
+                  <Route path="/gallery" component={Gallery}/>
+                  <Route path="/contact" component={Contact}/>
+                  <Route path="/adminenquiries" component={Adminenquiries}/>
+                  <Route path="/adminposts" component={Adminposts}/>
+                  <Route exact path="/posts" component={Posts}/>
+                  <Route path="/post/:id" component={Post}/>
+                </div>
           </StateContext.Provider>
-         </div>
-        </HashRouter>
+        </div>
+      </HashRouter>
 
     );
 }
