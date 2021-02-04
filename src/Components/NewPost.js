@@ -5,7 +5,7 @@ import {useGlobalState} from '../utils/stateContext'
 
 export default function NewPost() {
 	const initialFormState = {
-		admin_id: 2,
+		admin_id: 1,
 		name: '',
 		text: ''
 	}
@@ -22,20 +22,13 @@ export default function NewPost() {
 				console.log(post)
 				// const category = categories.find((category) => category.name.toLowerCase() === joke.category.toLowerCase())
 				setFormState({
-					admin_id: 2,
+					admin_id: 1,
 					name: post.name,
 					text: post.text
 				})
 			})
 		}
 	},[id])
-
-	function getLastId() {
-		console.log(posts)
-		const ids = posts.map(post => post.id)
-		console.log(ids)
-		return Math.max(...ids)
-	}
 
 	function handleChange(event) {
 		setFormState({
@@ -44,6 +37,7 @@ export default function NewPost() {
 		})
 		
 	}
+
 	function handleClick(event) {
 		event.preventDefault()
 		if(id) {
@@ -51,13 +45,13 @@ export default function NewPost() {
 			.then(() => {
 				dispatch({type: 'updatePost', data: {id: id, ...formState}})
 				history.push(`/post/${id}`)
+				history.push('/posts')
 			})
 		}
 		else {
-			const nextId = getLastId() + 1;
-			createPost({...formState, id: nextId})
-			.then((post) => {
-		
+			
+			createPost({...formState})
+			.then((post) => {		
 				dispatch({type: 'addPost', data: post})
 				history.push('/posts')
 			})
