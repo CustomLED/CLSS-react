@@ -68,17 +68,18 @@ export default function PostDetails() {
 	return (
 		<div>
 			<p>Job: {post.name}</p>			
-			{/* <p>Posted on: 
-				<Moment format='D MMM YYYY'>{post.posted}</Moment>
-			</p>			 */}
-			{/* <p>Category: {joke.category}</p> */}
 			<p>{post.text}</p>
-			{/* {loggedInUser === joke.author &&
-				<Panel>
-					<Button onClick={() => history.push(`/jokes/update/${id}`)}>Update</Button>
-					<Button onClick={handleDelete}>Delete</Button>
-				</Panel>
-			} */}
+			{loggedInUser ?
+			<>
+				<button onClick={() => history.push(`/posts/update/${id}`)}>Update</button>
+				<button onClick={handleDelete}>Delete</button>
+			</>
+			:
+			<>
+			<p>no one logged in</p>
+			</>
+			}
 		</div>
+	
 	)
 }

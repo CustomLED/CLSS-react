@@ -30,7 +30,7 @@ import {useGlobalState} from '../utils/stateContext'
 export default function Posts() {
 	const {store} = useGlobalState()
     const {posts} = store
-    // if(!posts) return null
+    if(!posts) return null
     
 
 	return  (
@@ -48,4 +48,4 @@ export default function Posts() {
 			})}
 		</div>
 	)
-		}
+}
