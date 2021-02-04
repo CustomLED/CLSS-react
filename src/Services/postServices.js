@@ -36,17 +36,21 @@ export async function getPost(id) {
 
 
 export async function createPost(post) {
-	return post
+	const response = await postAPI.post('/api/posts', post)
+	console.log(response)
+	return response.data
+	
 }
 
 export async function deletePost(id) {
-	console.log("ran")
-	return id
+	const response = await postAPI.delete(`/api/posts/${id}`)
+	return response.data
 }
 
-export async function updatePost(post) {
-	return post
-	
+export async function updatePost(data) {
+	const response = await postAPI.put(`/api/posts/${data.id}`, {name: data.name, text: data.text, admin_id: data.admin_id})
+	console.log(response)
+	return response.data
 }
 
 
