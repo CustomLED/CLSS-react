@@ -1,14 +1,86 @@
-.header a:link, a:visited {
-    text-decoration: none;
-    background: none;
+/* Navbar links*/
+
+.header a:link,
+a:visited {
+  text-decoration: none;
+  background: none;
 }
 
+/* Hovering over Navbar */
 .header a:hover {
-  background-color: #797978; 
-  transition: .5s;
+  background-color: #797978;
+  transition: 0.5s;
 }
 
+.nav-link, .about-text, .contact-title, #button {
+  font-family: 'Oxygen', sans-serif;
+}
+
+#home-table {
+  background-color:  rgb(123, 106, 106, 0.3);
+  margin: 5rem;
+}
+
+#home-img {
+padding: 2.5rem;
+margin: auto;
+display: block;
+height: 70%;
+width: 70%;
+}
+
+#about-parent {
+  background-color:  rgb(123, 106, 106, 0.3);
+  text-align: center;
+  margin-top: 10rem;
+  padding: 4rem;
+}
+
+.about-text {
+  color: white;
+}
+
+/* Fitting background video to page and rendering */
 #background-video {
   z-index: -1;
   object-fit: cover;
+}
+
+/* Element container for contact page */
+#contact {
+  background-color: rgb(123, 106, 106, 0.3);
+  margin-top: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: .5rem;
+}
+
+#enquiry-title {
+  color: white;
+  text-align: center;
+}
+
+#enquiry-table {
+
+}
+
+.contact-title {
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.input-fill {
+  height: 2rem;
+}
+
+#enquiry-message {
+  color: white;
+}
+
+#button {
+  color: white;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  text-transform: uppercase;
 }

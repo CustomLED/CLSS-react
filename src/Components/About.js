@@ -1,17 +1,16 @@
 import React, { Component } from "react";
+import Container from 'react-bootstrap/Container'
  
 class About extends Component {
   render() {
     return (
-      <div>
-        <h2>ABOUT</h2>
-        <p>It does not matter how slowly you go so long as you do not stop.</p>
-        <ol>
-          <li>Perseverance is the hard work you do,</li>
-          <li>after you get tired of doing, </li>
-          <li>the hard work you already did.</li>
-        </ol>
-      </div>
+      <Container fluid="md" id="about-parent" >
+        <h1 className="about-text">ABOUT US</h1>
+            <p className="about-text">We are dedicated to providing the highest quality of LED screen installations for your business</p>
+            <p className="about-text">We have a proven track record and boast a history of working with a large range of clients across the
+                hospitality, live music, retail and events industries.
+            </p>
+      </Container>
     );
   }
 }
