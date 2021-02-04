@@ -14,7 +14,10 @@ export default function Navi() {
 	function handleSignOut(event) {
 		event.preventDefault()
 		signOut(loggedInUser)
-		.then(() => dispatch({type: 'setLoggedInUser', data: null}))
+		.then(() => {
+			dispatch({type: 'setLoggedInUser', data: null})
+			dispatch({type: 'setToken', data: null})
+		})
 	}
 
 	return (
@@ -35,7 +38,7 @@ export default function Navi() {
               </>
             :
               <>
-              <p>test</p>
+              <p>You are now signed out</p>
               {/* <button onClick={() => history.push('/register')}>Register</button> */}
               {/* <button onClick={() => history.push('/sign_in')}>Sign In</button> */}
               </>

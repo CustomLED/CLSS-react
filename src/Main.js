@@ -23,14 +23,18 @@ import Nav from 'react-bootstrap/Nav'
 import BackgroundVideo from "./BackgroundVideo.jsx";
 import {signOut} from './Services/authServices'
 import Navi from './Components/Navi'
+import SignIn from './Components/SignIn'
+import NewUser from './Components/NewUser'
+import NewPost from './Components/NewPost'
+
  
 
 const Main = () => {
 	const initialState = {
     posts: [],
     enquiries: [],
-		loggedInUser: null,
-		auth: {token: null}
+		loggedInUser: sessionStorage.getItem("user") || null,
+		auth: {token:sessionStorage.getItem("token") || null}
   }
   
   const [store, dispatch] = useReducer(stateReducer,initialState)
@@ -86,7 +90,11 @@ const Main = () => {
                   <Route path="/adminenquiries" component={Adminenquiries}/>
                   <Route path="/adminposts" component={Adminposts}/>
                   <Route exact path="/posts" component={Posts}/>
-                  <Route path="/post/:id" component={Post}/>
+                  <Route exact path='/posts/new' component={NewPost} />
+						      <Route exact path='/posts/update/:id' component={NewPost} />
+                  <Route exact path="/post/:id" component={Post}/>
+                  <Route path='/sign_in' component={SignIn}/>
+                  <Route path='/register' component={NewUser}/>
                 </div>
           </StateContext.Provider>
         </div>

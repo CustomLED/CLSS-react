@@ -10,6 +10,6 @@ export async function signIn(data) {
     return response.data
 }
 export async function signOut(data) {
-    // sign in on server
-    return data.username
+    sessionStorage.clear();
+    return "Logged Out";
 }

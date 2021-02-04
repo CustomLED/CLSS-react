@@ -20,7 +20,9 @@ export default function SignIn({history}) {
 		event.preventDefault()
 		signIn(formState)
 		.then(({username,jwt}) => {
-			console.log(username, jwt);
+            console.log(username, jwt);
+            sessionStorage.setItem("token", jwt)
+            sessionStorage.setItem("user", username)
 			dispatch({type: 'setLoggedInUser', data: username})
 			dispatch({type: 'setToken', data: jwt})
 			history.push('/')
