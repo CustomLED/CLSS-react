@@ -34,3 +34,4 @@ export async function updateEnquiry(data) {
 	return response.data
 }
 
+export default createEnquiry
