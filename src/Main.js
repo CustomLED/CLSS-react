@@ -4,28 +4,30 @@ import {
   Route,
   NavLink,
   HashRouter
-} from "react-router-dom";
+} from "react-router-dom"
 import {getPosts} from './Services/postServices'
 import {getEnquiries} from './Services/enquiryServices'
 import stateReducer from './utils/stateReducer'
 import {StateContext} from './utils/stateContext'
-import Home from "./Components/Home";
-import Gallery from "./Components/Gallery";
-import Contact from "./Components/Contact";
-import About from "./Components/About";
-import Adminenquiries from "./Components/Adminenquiries";
-import Adminposts from "./Components/Adminposts";
-import Post from "./Components/Post";
-import Posts from "./Components/Posts";
-import postAPI from "./Services/postServices";
+import Home from "./Components/Home"
+import Gallery from "./Components/Gallery"
+import Contact from "./Components/Contact"
+import About from "./Components/About"
+import Adminenquiries from "./Components/Adminenquiries"
+import Adminposts from "./Components/Adminposts"
+import Post from "./Components/Post"
+import Posts from "./Components/Posts"
+import postAPI from "./Services/postServices"
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import BackgroundVideo from "./BackgroundVideo.jsx";
+import BackgroundVideo from "./BackgroundVideo.jsx"
 import {signOut} from './Services/authServices'
 import Navi from './Components/Navi'
 import SignIn from './Components/SignIn'
 import NewUser from './Components/NewUser'
 import NewPost from './Components/NewPost'
+import EnquiryForm from './Components/EnquiryForm'
+import Enquiry from './Components/Enquiry'
 
  
 
@@ -87,7 +89,10 @@ const Main = () => {
                   <Route path="/about" component={About}/>
                   <Route path="/gallery" component={Gallery}/>
                   <Route path="/contact" component={Contact}/>
-                  <Route path="/adminenquiries" component={Adminenquiries}/>
+                  <Route exact path="/adminenquiries" component={Adminenquiries}/>
+                  <Route exact path='/adminenquiries/new' component={EnquiryForm} />
+						      <Route exact path='/adminenquiries/update/:id' component={EnquiryForm} />
+                  <Route exact path='/adminenquiries/:id' component={Enquiry}/>
                   <Route path="/adminposts" component={Adminposts}/>
                   <Route exact path="/posts" component={Posts}/>
                   <Route exact path='/posts/new' component={NewPost} />
