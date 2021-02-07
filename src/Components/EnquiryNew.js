@@ -33,6 +33,8 @@ export default function EnquiryForm() {
     })
   }
   
+  // const { status } = formState;
+  
   function submitForm(event) {
       // event.preventDefault();
       createEnquiry({...formState})
@@ -67,7 +69,7 @@ export default function EnquiryForm() {
       // data: new FormData(form)
       data: formState
     })
-      .then(r => { console.log("posted");
+    .then(r => { console.log("posted");
     handleServerResponse(true, "Thanks!", form);
   })
   .catch(r => {

@@ -22,7 +22,7 @@ export default function EnquiryDetails() {
 		deleteEnquiry(id)
 		.then(() => {
 			dispatch({type: 'deleteEnquiry', data: id})
-			history.push('/Adminenquiries')
+			history.push('/adminenquiries')
 		})
 	}
 	return (

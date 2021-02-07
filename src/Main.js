@@ -14,6 +14,7 @@ import Gallery from "./Components/Gallery"
 import Contact from "./Components/Contact"
 import About from "./Components/About"
 import Adminenquiries from "./Components/Adminenquiries"
+import EnquiryNew from "./Components/EnquiryNew"
 import Adminposts from "./Components/Adminposts"
 import Post from "./Components/Post"
 import Posts from "./Components/Posts"
@@ -88,7 +89,7 @@ const Main = () => {
                   <Route exact path="/" component={Home}/>
                   <Route path="/about" component={About}/>
                   <Route path="/gallery" component={Gallery}/>
-                  <Route path="/contact" component={Contact}/>
+                  <Route path="/contact" component={EnquiryForm}/>
                   <Route exact path="/adminenquiries" component={Adminenquiries}/>
                   <Route exact path='/adminenquiries/new' component={EnquiryForm} />
 						      <Route exact path='/adminenquiries/update/:id' component={EnquiryForm} />

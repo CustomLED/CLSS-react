@@ -32,7 +32,6 @@ export default function reducer (state, action) {
 			}
 
 		}
-
 		case 'setEnquiries':{
 			return {
 				...state,
@@ -51,7 +50,7 @@ export default function reducer (state, action) {
 			})
 			return {
 				...state,
-				post: updatedEnquiries
+				enquires: updatedEnquiries
 			}
 		}
 		case 'updateEnquiries': {
