@@ -5,17 +5,9 @@ import {useHistory} from 'react-router-dom'
 import {useGlobalState} from '../utils/stateContext'
 import axios from "axios";
 
-// export default class EnquiryForm extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.submitForm = this.submitForm.bind(this);
-//     this.state = {
-//       status: ""
-//     };
-//   }
 
 export default function EnquiryForm() {
-	const initialFormState = {
+  const initialFormState = {
     first_name: '',
     last_name: '',
     organisation: '', 
@@ -23,12 +15,12 @@ export default function EnquiryForm() {
     phone_number: '',
     admin_id: 1,
   }
-
+  
   const [serverState, setServerState] = useState({
     submitting: false,
     status: null
   })
-
+  
   const [formState, setFormState] = useState(initialFormState)
   const {dispatch} = useGlobalState()
   let history = useHistory()
@@ -40,17 +32,18 @@ export default function EnquiryForm() {
   }
   // const { status } = formState;
   
-    function submitForm(event) {
+  function submitForm(event) {
       event.preventDefault();
       createEnquiry({...formState})
       .then((post) => {		
         dispatch({type: 'addEnquiry', data: post});
         history.push('/adminenquiries')
       })
+      .then(handleOnSubmit(event))
       .catch((error) => console.log(error))
     }
     
-  const handleServerResponse = (ok, msg, form) => {
+    const handleServerResponse = (ok, msg, form) => {
     setServerState({
       submitting: false,
       status: { ok, msg }
@@ -59,52 +52,26 @@ export default function EnquiryForm() {
       form.reset();
     } 
   }
-
-  const handleOnSubmit = (e) => {
+  
+  function handleOnSubmit(e) {
     e.preventDefault();
     const form = e.target;
     setServerState({ submitting: true });
     axios({
       method: "post",
-      url: "https://formspree.io/f/mgepdgee",
+      // url: "https://formspree.io/f/mgepdgee",
+      url: "https://formspree.io/f/xwkwrkyr",
       // data: new FormData(form)
       data: formState
     })
-      .then(r => { console.log("posted");
-        handleServerResponse(true, "Thanks!", form);
-      })
-      .catch(r => {
+    .then(r => { console.log("posted");
+    handleServerResponse(true, "Thanks!", form);
+  })
+  .catch(r => {
         handleServerResponse(false, "failed", form);
       });
-  };
-
-//   function twofunction() {
-//     submitForm();
-//     handleOnSubmit();
-  
-// }
-
-  // function form(ev){
-  // ev.preventDefault()
-  //   const form = ev.target;
-  //   const data = new FormData(form);
-  //   // const data = new formState();
-  //   const xhr = new XMLHttpRequest();
-  //   xhr.open(form.method, form.action);
-  //   xhr.setRequestHeader("Accept", "application/json");
-  //   xhr.onreadystatechange = () => {
-  //       if (xhr.readyState !== XMLHttpRequest.DONE) return;
-  //     if (xhr.status === 200) {
-  //       form.reset();
-  //       // this.setState({ status: "SUCCESS" });
-  //     } else {
-  //       // this.setState({ status: "ERROR" });
-  //     }
-  //   };
-  //   // xhr.send(data);
-  //   xhr.send(data);
-  // }
-
+    };
+    
     
     return (
       // <div onSubmit={form}>
@@ -128,7 +95,7 @@ export default function EnquiryForm() {
         <input type="tel" name="phone_number" className="input-fill col-sm-6" value={formState.phone_number} onChange={handleChange}/>
         <label id="enquiry-content" className="contact-title col-sm-6">Enquiry:</label>
         <input type="text" name="description" className="input-fill col-sm-6" value={formState.description} onChange={handleChange}/>
-        <div id="button-parent" class="offset-sm-6"><button id="button" class="" onClick={handleOnSubmit}>Submit</button></div>
+        <div id="button-parent" class="offset-sm-6"><button id="button" class="" onClick={submitForm}>Submit</button></div>
         {serverState.status && (
           <p className={!serverState.status.ok ? "errorMsg" : ""}>
             {serverState.status.msg}
@@ -139,10 +106,35 @@ export default function EnquiryForm() {
       </form>
     // </div>
     )
-  
-}
-
-
-  
-  
- 
+    
+    
+    // export default class EnquiryForm extends React.Component {
+    //   constructor(props) {
+    //     super(props);
+    //     this.submitForm = this.submitForm.bind(this);
+    //     this.state = {
+    //       status: ""
+    //     };
+    //   }
+    
+  // function form(ev){
+  // ev.preventDefault()
+  //   const form = ev.target;
+  //   const data = new FormData(form);
+  //   // const data = new formState();
+  //   const xhr = new XMLHttpRequest();
+  //   xhr.open(form.method, form.action);
+  //   xhr.setRequestHeader("Accept", "application/json");
+  //   xhr.onreadystatechange = () => {
+  //       if (xhr.readyState !== XMLHttpRequest.DONE) return;
+  //     if (xhr.status === 200) {
+  //       form.reset();
+  //       // this.setState({ status: "SUCCESS" });
+  //     } else {
+  //       // this.setState({ status: "ERROR" });
+  //     }
+  //   };
+  //   // xhr.send(data);
+  //   xhr.send(data);
+  // }
+  }
