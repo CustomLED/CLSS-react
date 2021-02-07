@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {useHistory, useParams} from 'react-router-dom'
 import {createPost, getPost, updatePost} from '../Services/postServices'
 import {useGlobalState} from '../utils/stateContext'
+// import NewImageForm from './NewImageForm'
 
 export default function NewPost() {
 	const initialFormState = {
@@ -64,6 +65,7 @@ export default function NewPost() {
 			{/* <select name='category_id' value={formState.category_id} onChange={handleChange}> */}
 				{/* {categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
 			</select> */}
+			{/* <NewImageForm value={formState.name} onChange={handleChange}/> */}
 			<label>Job Name:</label>
 			<textarea type='text' name='name' value={formState.name} onChange={handleChange}></textarea>
 			<label>Job description:</label>

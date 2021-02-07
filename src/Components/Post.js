@@ -69,6 +69,7 @@ export default function PostDetails() {
 		<div>
 			<p>Job: {post.name}</p>			
 			<p>{post.text}</p>
+			<img src="https://res.cloudinary.com/custom-led-screen-solutions/image/upload/v1612589056/CLSS/CA9550F6-C742-4C1A-B307-FC965A14917A_1_105_c_dmaa1d.jpg" alt="showgirls"/>
 			{loggedInUser ?
 			<>
 				<button onClick={() => history.push(`/posts/update/${id}`)}>Update</button>
@@ -76,7 +77,6 @@ export default function PostDetails() {
 			</>
 			:
 			<>
-			<p>no one logged in</p>
 			</>
 			}
 		</div>

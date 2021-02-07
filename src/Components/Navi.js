@@ -29,7 +29,14 @@ export default function Navi() {
             <Nav.Link><NavLink exact to="/" className="nav-link">HOME</NavLink></Nav.Link>
             <Nav.Link><NavLink to="/about" className="nav-link">ABOUT</NavLink></Nav.Link>
             <Nav.Link><NavLink to="/gallery" className="nav-link">GALLERY</NavLink></Nav.Link>
+            {loggedInUser ? 
+            <>
+            <Nav.Link><NavLink to="/adminenquiries" className="nav-link">ENQUIRIES</NavLink></Nav.Link>
+            <Nav.Link><NavLink to="/posts/new" className="nav-link">NEW POST</NavLink></Nav.Link>
+            </>
+            : 
             <Nav.Link><NavLink to="/contact" className="nav-link">CONTACT</NavLink></Nav.Link>
+            }
             {loggedInUser ?
               <>
               <button onClick={handleSignOut}>Sign Out</button>	
@@ -38,7 +45,6 @@ export default function Navi() {
               </>
             :
               <>
-              <p>You are now signed out</p>
               {/* <button onClick={() => history.push('/register')}>Register</button> */}
               {/* <button onClick={() => history.push('/sign_in')}>Sign In</button> */}
               </>

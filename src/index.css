@@ -40,6 +40,35 @@ width: 70%;
   color: white;
 }
 
+#posts-div{
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+#posts-card {
+
+}
+
+#card-child {
+  color: white;
+  border-color: rgb(24, 22, 22);
+  text-align: center;
+}
+
+.card-body {
+  background-color: rgb(44, 41, 41);
+}
+
+#card-button {
+  background-color: white;
+  border-color: white;
+}
+
+#card-button-text {
+  color: black;
+}
+
 /* Fitting background video to page and rendering */
 #background-video {
   z-index: -1;
