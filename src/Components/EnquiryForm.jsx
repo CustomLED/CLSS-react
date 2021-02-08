@@ -94,7 +94,7 @@ export default function EnquiryForm() {
         <label className="contact-title col-sm-6">Phone:</label>
         <input type="tel" name="phone_number" className="input-fill col-sm-6" value={formState.phone_number} onChange={handleChange}/>
         <label id="enquiry-content" className="contact-title col-sm-6">Enquiry:</label>
-        <input type="text" name="description" className="input-fill col-sm-6" value={formState.description} onChange={handleChange}/>
+        <textarea type="text" name="description" className="input-fill col-sm-6" value={formState.description} onChange={handleChange}/>
         <div id="button-parent" class="offset-sm-6"><button id="button" class="" onClick={submitForm}>Submit</button></div>
         {serverState.status && (
           <p className={!serverState.status.ok ? "errorMsg" : ""}>
