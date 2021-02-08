@@ -27,13 +27,13 @@ export default function EnquiryDetails() {
 		})
 	}
 	return (
-		<div>
-			<p>First Name: {enquiry.first_name}</p>			
-			<p>Last Name: {enquiry.last_name}</p>
-            <p>Organisation: {enquiry.organisation} </p>
-            <p>Email: {enquiry.email}</p>
-            <p>Phone Number: {enquiry.phone_number}</p>
-            <p>Description: {enquiry.description}</p>
+		<div id="new-enquiry-table">
+			<h2 className="new-enquiry-text">First Name:</h2><h3 className="new-enquiry-text">{enquiry.first_name}</h3>			
+			<h2 className="new-enquiry-text">Last Name:</h2><h3 className="new-enquiry-text"> {enquiry.last_name}</h3>
+            <h2 className="new-enquiry-text">Organisation:</h2><h3 className="new-enquiry-text"> {enquiry.organisation} </h3>
+            <h2 className="new-enquiry-text">Email:</h2><h3 className="new-enquiry-text"> {enquiry.email}</h3>
+            <h2 className="new-enquiry-text">Phone Number:</h2><h3 className="new-enquiry-text"> {enquiry.phone_number}</h3>
+            <h2 className="new-enquiry-text">Description:</h2><h3 className="new-enquiry-text"> {enquiry.description}</h3>
 			{loggedInUser ?
 			<>
 				{/* <button onClick={() => history.push(`/adminenquiries/update/${id}`)}>Update</button> */}

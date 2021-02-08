@@ -3,6 +3,9 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 // import styled from 'styled-components'
 import {useGlobalState} from '../utils/stateContext'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import CardDeck from 'react-bootstrap/CardDeck'
 
 
 export default function Enquiries() {
@@ -14,10 +17,19 @@ export default function Enquiries() {
 		<div>
            {enquiries.map((enquiries,index) => {
 				return (
-				
-					<li key={enquiries.id}>
-                        <Link to={`/adminenquiries/${enquiries.id}`}>{enquiries.first_name} {enquiries.last_name} {enquiries.organisation} {enquiries.phone_number} {enquiries.email} {enquiries.description} {enquiries.admin}</Link>
-                    </li>
+
+					<div id="enquiry-list" className="d-flex justify-content-center">
+					<CardDeck key={enquiries.id}>
+						<Card>
+							<Card.Title>{enquiries.organisation}</Card.Title>
+							<Link to={`/adminenquiries/${enquiries.id}`} id="enquiry-list-link">
+							<Card.Body id="enquiry-list-body">{enquiries.first_name}
+								<br/>(read)
+							</Card.Body>
+							</Link>
+						</Card>
+                    </CardDeck>
+					</div>
                 
 				)
 			})}
