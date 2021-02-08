@@ -19,7 +19,7 @@ export default function reducer (state, action) {
 			})
 			return {
 				...state,
-				post: updatedPosts
+				posts: updatedPosts
 			}
 		}
 		case 'updatePost': {
@@ -32,7 +32,6 @@ export default function reducer (state, action) {
 			}
 
 		}
-
 		case 'setEnquiries':{
 			return {
 				...state,
@@ -42,16 +41,22 @@ export default function reducer (state, action) {
 		case 'addEnquiries': {
 			return {
 				...state,
-				enquiries: [action.data, ...state.enquiries]
+				enquiries: [...state.enquiries, action.data]
 			}
 		}
-		case 'deleteEnquiries': {
-			const updatedEnquiries = state.enquiries.filter((enquiries) => {
-				return enquiries.id !== parseInt(action.data)
+		case 'deleteEnquiry': {
+			console.log("Data is:")
+			console.log(action.data)
+			console.log("Individual Enquiry:")
+			const updatedEnquiries = state.enquiries.filter((enquiry) => {
+				console.log(enquiry)
+				return enquiry.id !== parseInt(action.data)
 			})
+			console.log("All Enquiry")
+			console.log(updatedEnquiries)
 			return {
 				...state,
-				post: updatedEnquiries
+				enquiries: updatedEnquiries
 			}
 		}
 		case 'updateEnquiries': {

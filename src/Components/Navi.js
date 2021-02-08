@@ -21,42 +21,37 @@ export default function Navi() {
 	}
 
 	return (
-			<Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" fixed="top" className="header">
-            <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-            <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto nav-fill w-100">
-            <Nav.Link><NavLink exact to="/" className="nav-link">HOME</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/about" className="nav-link">ABOUT</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/gallery" className="nav-link">GALLERY</NavLink></Nav.Link>
-            {loggedInUser ? 
-            <>
-            <Nav.Link><NavLink to="/adminenquiries" className="nav-link">ENQUIRIES</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/posts/new" className="nav-link">NEW POST</NavLink></Nav.Link>
-            </>
-            : 
-            <Nav.Link><NavLink to="/contact" className="nav-link">CONTACT</NavLink></Nav.Link>
-            }
-            {loggedInUser ?
-              <>
-              <button onClick={handleSignOut}>Sign Out</button>	
-              {/* <button onClick={() => history.push('/posts/new') }>Add Joke</button>	 */}
-              <span>{loggedInUser}</span>
-              </>
-            :
-              <>
-              {/* <button onClick={() => history.push('/register')}>Register</button> */}
-              {/* <button onClick={() => history.push('/sign_in')}>Sign In</button> */}
-              </>
-            }
+		<Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" fixed="top" className="header">
+		<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+		<Navbar.Collapse id="responsive-navbar-nav">
+		<Nav className="mr-auto nav-fill w-100">
+		<NavLink exact to="/" className="nav-link">HOME</NavLink>
+		<NavLink to="/about" className="nav-link">ABOUT</NavLink>
+		<NavLink to="/gallery" className="nav-link">GALLERY</NavLink>
+		{loggedInUser ? 
+		<>
+		<NavLink to="/adminenquiries" className="nav-link">ENQUIRIES</NavLink>
+		<NavLink to="/posts/new" className="nav-link">NEW POST</NavLink>
+		</>
+		: 
+		<NavLink to="/contact" className="nav-link">CONTACT</NavLink>
+		}
+		{loggedInUser ?
+		  <>
+		  <button onClick={handleSignOut}>Sign Out</button>    
+		  {/* <button onClick={() => history.push('/posts/new') }>Add Joke</button>     */}
+		  <span>{loggedInUser}</span>
+		  </>
+		:
+		  <>
+		  {/* <button onClick={() => history.push('/register')}>Register</button> */}
+		  {/* <button onClick={() => history.push('/sign_in')}>Sign In</button> */}
+		  </>
+		}
+		
 		</Nav>
 		</Navbar.Collapse>
-		{/* <Nav.Link><NavLink to="/adminenquiries">Admin Enquiry</NavLink></Nav.Link>
-		<Nav.Link><NavLink to="/adminposts">Admin Posts</NavLink></Nav.Link>
-		<Nav.Link><NavLink to="/post">A Single Post</NavLink></Nav.Link>
-		<Nav.Link><NavLink to="/posts">Many Posts</NavLink></Nav.Link> */}
-
-
-
 	  </Navbar> 
-  )
+	)
+
 }

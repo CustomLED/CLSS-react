@@ -13,31 +13,45 @@ export default function EnquiryForm() {
     organisation: '', 
 		email: '', 
     phone_number: '',
-    admin_id: 1,
+    description: '',
+    admin_id: 1
   }
   
   const [serverState, setServerState] = useState({
     submitting: false,
     status: null
   })
+
+  // const [edit, setEdit] = useState(false)
   
   const [formState, setFormState] = useState(initialFormState)
   const {dispatch} = useGlobalState()
   let history = useHistory()
+
   function handleChange(event) {
     setFormState({
       ...formState,
       [event.target.name]: event.target.value
     })
   }
-  // const { status } = formState;
+
+  // useEffect(() => {
+    // fetching to enquiry db w/ :id
+    // if it exists, set form data and setEdit to true
+
+  // }, [])
   
   function submitForm(event) {
-      event.preventDefault();
+      // event.preventDefault();
+      // if (edit == true) {
+      //   // fetch to db to edit enquiry
+      //   // .then return
+      // }
       createEnquiry({...formState})
       .then((post) => {		
-        dispatch({type: 'addEnquiry', data: post});
-        history.push('/adminenquiries')
+        dispatch({type: 'addEnquiries', data: post});
+      
+        history.push('/')
       })
       .then(handleOnSubmit(event))
       .catch((error) => console.log(error))
@@ -49,6 +63,7 @@ export default function EnquiryForm() {
       status: { ok, msg }
     });
     if (ok) {
+      console.log("formreset")
       form.reset();
     } 
   }
@@ -59,12 +74,11 @@ export default function EnquiryForm() {
     setServerState({ submitting: true });
     axios({
       method: "post",
-      // url: "https://formspree.io/f/mgepdgee",
-      url: "https://formspree.io/f/xwkwrkyr",
-      // data: new FormData(form)
+      url: "https://formspree.io/f/mgepdgee",
+      // url: "https://formspree.io/f/xwkwrkyr",
       data: formState
     })
-    .then(r => { console.log("posted");
+      .then(r => { console.log("posted");
     handleServerResponse(true, "Thanks!", form);
   })
   .catch(r => {
@@ -77,8 +91,8 @@ export default function EnquiryForm() {
       // <div onSubmit={form}>
       <form
       // onSubmit={handleOnSubmit}
-      action="https://formspree.io/f/mgepdgee"
-      method="POST"
+      // action="https://formspree.io/f/mgepdgee"
+      // method="POST"
       >
         <h1 id="enquiry-title">ENQUIRIES</h1>
         <div id="enquiry-table" className="container-fluid">
@@ -94,8 +108,8 @@ export default function EnquiryForm() {
         <label className="contact-title col-sm-6">Phone:</label>
         <input type="tel" name="phone_number" className="input-fill col-sm-6" value={formState.phone_number} onChange={handleChange}/>
         <label id="enquiry-content" className="contact-title col-sm-6">Enquiry:</label>
-        <textarea type="text" name="description" className="input-fill col-sm-6" value={formState.description} onChange={handleChange}/>
-        <div id="button-parent" class="offset-sm-6"><button id="button" class="" onClick={submitForm}>Submit</button></div>
+        <textarea type="text" id="enquiry-content-fill" name="description" className="input-fill col-sm-6" value={formState.description} onChange={handleChange}/>
+        <div id="button-parent" className="offset-sm-6"><button id="button" className="" onClick={submitForm}>Submit</button></div>
         {serverState.status && (
           <p className={!serverState.status.ok ? "errorMsg" : ""}>
             {serverState.status.msg}
@@ -106,35 +120,4 @@ export default function EnquiryForm() {
       </form>
     // </div>
     )
-    
-    
-    // export default class EnquiryForm extends React.Component {
-    //   constructor(props) {
-    //     super(props);
-    //     this.submitForm = this.submitForm.bind(this);
-    //     this.state = {
-    //       status: ""
-    //     };
-    //   }
-    
-  // function form(ev){
-  // ev.preventDefault()
-  //   const form = ev.target;
-  //   const data = new FormData(form);
-  //   // const data = new formState();
-  //   const xhr = new XMLHttpRequest();
-  //   xhr.open(form.method, form.action);
-  //   xhr.setRequestHeader("Accept", "application/json");
-  //   xhr.onreadystatechange = () => {
-  //       if (xhr.readyState !== XMLHttpRequest.DONE) return;
-  //     if (xhr.status === 200) {
-  //       form.reset();
-  //       // this.setState({ status: "SUCCESS" });
-  //     } else {
-  //       // this.setState({ status: "ERROR" });
-  //     }
-  //   };
-  //   // xhr.send(data);
-  //   xhr.send(data);
-  // }
   }

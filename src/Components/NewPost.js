@@ -21,7 +21,6 @@ export default function NewPost() {
 			getPost(id)
 			.then((post) => {
 				console.log(post)
-				// const category = categories.find((category) => category.name.toLowerCase() === joke.category.toLowerCase())
 				setFormState({
 					admin_id: 1,
 					name: post.name,

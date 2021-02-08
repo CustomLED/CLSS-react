@@ -1,16 +1,17 @@
-import React,{ useState,useEffect} from 'react'
-import {useParams,useHistory} from 'react-router-dom'
-import {getPost} from '../Services/postServices.js'
+import React, {useState, useEffect} from 'react'
+import {useParams, useHistory} from 'react-router-dom'
+import {getPost, deletePost} from '../Services/postServices.js'
 import {useGlobalState} from '../utils/stateContext'
-import {deletePost} from '../Services/postServices'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 
 export default function PostDetails() {
-	const [post,setPost] = useState(null)
+	const [post, setPost] = useState(null)
 	const {id} = useParams()
 	let history = useHistory()
-	const {store,dispatch} = useGlobalState()
+	const {dispatch, store} = useGlobalState()
 	const {loggedInUser} = store
+	
+	
 	useEffect(() => {
 		getPost(id)
 		.then((post) => setPost(post))
@@ -22,10 +23,13 @@ export default function PostDetails() {
 	function handleDelete() {
 		deletePost(id)
 		.then(() => {
+			console.log(post)
 			dispatch({type: 'deletePost', data: id})
 			history.push('/posts')
 		})
 	}
+
+	
 	return (
 		<Jumbotron fluid id="job-table" className="d-flex flex-column align-items-center">
 			<h1 className="job-post-text">{post.name}</h1>			
