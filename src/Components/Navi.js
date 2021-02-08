@@ -21,7 +21,6 @@ export default function Navi() {
 	}
 
 	return (
-		
 			<Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" fixed="top" className="header">
             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
             <Navbar.Collapse id="responsive-navbar-nav">
@@ -49,16 +48,15 @@ export default function Navi() {
               {/* <button onClick={() => history.push('/sign_in')}>Sign In</button> */}
               </>
             }
-            
-            </Nav>
-            </Navbar.Collapse>
-            {/* <Nav.Link><NavLink to="/adminenquiries">Admin Enquiry</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/adminposts">Admin Posts</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/post">A Single Post</NavLink></Nav.Link>
-            <Nav.Link><NavLink to="/posts">Many Posts</NavLink></Nav.Link> */}
+		</Nav>
+		</Navbar.Collapse>
+		{/* <Nav.Link><NavLink to="/adminenquiries">Admin Enquiry</NavLink></Nav.Link>
+		<Nav.Link><NavLink to="/adminposts">Admin Posts</NavLink></Nav.Link>
+		<Nav.Link><NavLink to="/post">A Single Post</NavLink></Nav.Link>
+		<Nav.Link><NavLink to="/posts">Many Posts</NavLink></Nav.Link> */}
 
 
 
-          </Navbar> 
-	)
+	  </Navbar> 
+  )
 }
