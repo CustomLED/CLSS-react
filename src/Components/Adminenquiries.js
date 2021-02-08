@@ -1,7 +1,6 @@
 
 import React from 'react'
 import {Link} from 'react-router-dom'
-// import styled from 'styled-components'
 import {useGlobalState} from '../utils/stateContext'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'

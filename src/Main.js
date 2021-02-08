@@ -80,30 +80,28 @@ const Main = () => {
                 <div className="content">
                   
                   <Route exact path="/" component={Home}/>
-                  <PrivateRoute path="/about">
-                    <About />
-                  </PrivateRoute> 
-                  {/* {loggedInUser ? (
-                    <Route path="/about" component={About}/>
-                  ) : (
-                    <Redirect to exact path="/" />
-                  )} */}
-                  {/* <Route path="/gallery" component={Posts}/> */}
+                  <Route path="/about" component={About}/>
                   <Route path="/contact" component={EnquiryForm}/>
                   {/* <Route path="/contact" render={(props) => <EnquiryForm {...props} />} /> */}
-                  {/* <PrivateRoute path="/adminenquiries">
+                  <PrivateRoute exact path="/adminenquiries">
                     <Adminenquiries />
-                  </PrivateRoute> */}
-                  <Route exact path="/adminenquiries" component={Adminenquiries}/>
-                  <Route exact path='/adminenquiries/new' component={EnquiryForm} />
+                  </PrivateRoute>
+                  {/* <Route exact path="/adminenquiries" component={Adminenquiries}/> */}
+                  <Route exact path="/adminenquiries/new" component={EnquiryForm} />
 						      {/* <Route exact path='/adminenquiries/update/:id' component={EnquiryForm} /> */}
-                  {/* <PrivateRoute path="/adminenquiries/:id">
+                  <PrivateRoute exact path="/adminenquiries/:id">
                     <Enquiry />
-                  </PrivateRoute> */}
-                  <Route exact path='/adminenquiries/:id' component={Enquiry}/>
+                  </PrivateRoute>
+                  {/* <Route path='/adminenquiries/:id' component={Enquiry}/> */}
                   <Route exact path="/posts" component={Posts}/>
-                  <Route exact path='/posts/new' component={NewPost} />
-						      <Route exact path='/posts/update/:id' component={NewPost} />
+                  <PrivateRoute exact path="/posts/new">
+                    <NewPost />
+                  </PrivateRoute>
+                  {/* <Route exact path='/posts/new' component={NewPost} /> */}
+                  <PrivateRoute exact path="/posts/update/:id">
+                    <NewPost />
+                  </PrivateRoute>
+						      {/* <Route exact path='/posts/update/:id' component={NewPost} /> */}
                   <Route exact path="/post/:id" component={Post}/>
                   <Route path='/sign_in' component={SignIn}/>
                   {/* <Route path='/register' component={NewUser}/> */}
@@ -116,3 +114,8 @@ const Main = () => {
 }
 
 export default Main;
+
+
+// {/* <PrivateRoute path="/about">
+//                     <About />
+//                   </PrivateRoute>  */}
