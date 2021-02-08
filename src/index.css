@@ -170,3 +170,24 @@ background-color:  rgb(123, 106, 106, 0.3);
   border: 2px solid #ffffff;
   text-transform: uppercase;
 }
+
+#new-enquiry-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:rgb(123, 106, 106, 0.3)
+}
+
+.new-enquiry-text {
+  color: white;
+}
+
+#enquiry-list {
+  margin: 5rem;
+}
+
+#enquiry-list-body {
+text-align: center;
+color: white;
+}
