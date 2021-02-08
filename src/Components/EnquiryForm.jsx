@@ -22,7 +22,7 @@ export default function EnquiryForm() {
     status: null
   })
 
-  const [edit, setEdit] = useState(false)
+  // const [edit, setEdit] = useState(false)
   
   const [formState, setFormState] = useState(initialFormState)
   const {dispatch} = useGlobalState()
@@ -76,7 +76,6 @@ export default function EnquiryForm() {
       method: "post",
       url: "https://formspree.io/f/mgepdgee",
       // url: "https://formspree.io/f/xwkwrkyr",
-      // data: new FormData(form)
       data: formState
     })
       .then(r => { console.log("posted");
@@ -109,7 +108,7 @@ export default function EnquiryForm() {
         <label className="contact-title col-sm-6">Phone:</label>
         <input type="tel" name="phone_number" className="input-fill col-sm-6" value={formState.phone_number} onChange={handleChange}/>
         <label id="enquiry-content" className="contact-title col-sm-6">Enquiry:</label>
-        <input type="text" name="description" className="input-fill col-sm-6" value={formState.description} onChange={handleChange}/>
+        <textarea type="text" id="enquiry-content-fill" name="description" className="input-fill col-sm-6" value={formState.description} onChange={handleChange}/>
         <div id="button-parent" className="offset-sm-6"><button id="button" className="" onClick={submitForm}>Submit</button></div>
         {serverState.status && (
           <p className={!serverState.status.ok ? "errorMsg" : ""}>
@@ -121,35 +120,4 @@ export default function EnquiryForm() {
       </form>
     // </div>
     )
-    
-    
-    // export default class EnquiryForm extends React.Component {
-    //   constructor(props) {
-    //     super(props);
-    //     this.submitForm = this.submitForm.bind(this);
-    //     this.state = {
-    //       status: ""
-    //     };
-    //   }
-    
-  // function form(ev){
-  // ev.preventDefault()
-  //   const form = ev.target;
-  //   const data = new FormData(form);
-  //   // const data = new formState();
-  //   const xhr = new XMLHttpRequest();
-  //   xhr.open(form.method, form.action);
-  //   xhr.setRequestHeader("Accept", "application/json");
-  //   xhr.onreadystatechange = () => {
-  //       if (xhr.readyState !== XMLHttpRequest.DONE) return;
-  //     if (xhr.status === 200) {
-  //       form.reset();
-  //       // this.setState({ status: "SUCCESS" });
-  //     } else {
-  //       // this.setState({ status: "ERROR" });
-  //     }
-  //   };
-  //   // xhr.send(data);
-  //   xhr.send(data);
-  // }
   }

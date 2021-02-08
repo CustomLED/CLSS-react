@@ -51,13 +51,6 @@ export default function Navi() {
 		
 		</Nav>
 		</Navbar.Collapse>
-		{/* <Nav.Link><NavLink to="/adminenquiries">Admin Enquiry</NavLink></Nav.Link>
-		<Nav.Link><NavLink to="/adminposts">Admin Posts</NavLink></Nav.Link>
-		<Nav.Link><NavLink to="/post">A Single Post</NavLink></Nav.Link>
-		<Nav.Link><NavLink to="/posts">Many Posts</NavLink></Nav.Link> */}
-
-
-
 	  </Navbar> 
 	)
 

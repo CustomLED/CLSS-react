@@ -1,9 +1,7 @@
 // import React, { Component } from "react";
-import React,{useState, useReducer, useEffect} from 'react'
+import React,{useReducer, useEffect} from 'react'
 import {
   Route,
-  NavLink,
-  HashRouter,
   BrowserRouter,
   Redirect
 } from "react-router-dom"
@@ -119,31 +117,3 @@ const Main = () => {
 }
 
 export default Main;
-
-
-
-  //wrong syntax
-  // useEffect(() => {
-  //   getEnquiries()
-  // 	.then((enquiries) => dispatch({type: 'setEnquiries', data: enquiries}))
-  // 	.catch((error) => console.log(error))
-  // },[])
-
-  //kinda works but doesn't actully. doesn;t show posts
-  //  useEffect(async () => {
-  //   getPosts()
-  //    const posts = await getPosts
-  //    dispatch({type: 'getPosts', data: posts})
-  //   getEnquiries()
-  //   const queries = await getEnquiries
-  //   dispatch({type: 'getEnquiries', data: queries})
-  // }, [])
-
-//   useEffect(() => {
-//     getPosts()
-//     //  .then(posts => {
-//     //     setPosts(result.posts);
-//     //  })
-//     .then((posts) => dispatch({type: 'setPosts', data: posts}))
-//      .catch(console.error)
-// }, [setPosts]);

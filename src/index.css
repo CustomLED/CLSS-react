@@ -1,3 +1,5 @@
+
+
 /* Navbar links*/
 
 .header a:link,
@@ -16,18 +18,37 @@ a:visited {
   font-family: 'Oxygen', sans-serif;
 }
 
-#home-table {
-  background-color:  rgb(123, 106, 106, 0.3);
-  margin: 5rem;
-}
 
 #home-img {
-padding: 2.5rem;
-margin: auto;
-display: block;
-height: 70%;
-width: 70%;
+  padding: 2.5rem;
+  margin: auto;
+  display: block;
+  height: 50%;
+  width: 50%;
 }
+
+@media only screen and (min-width: 480px) {
+#home-table {
+  background-color:  rgb(123, 106, 106, 0.3);
+  margin: 10rem;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  #home-table {
+    margin-top: 10rem;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    background-color: none;
+  }
+  #home-img {
+    height: 250px;
+    width: 450px;
+  }
+}
+
+
 
 #about-parent {
   background-color:  rgb(123, 106, 106, 0.3);
@@ -38,6 +59,66 @@ width: 70%;
 
 .about-text {
   color: white;
+}
+
+#posts-div{
+
+}
+
+#posts-card {
+
+}
+
+#card-child {
+  color: white;
+  border-color: rgb(24, 22, 22);
+  text-align: center;
+}
+
+.card-body {
+  background-color: rgb(44, 41, 41);
+}
+
+#card-button {
+  background-color: white;
+  border-color: white;
+}
+
+#card-button-text {
+  color: black;
+}
+
+#job-table {
+  background-color:  rgb(123, 106, 106, 0.3);
+}
+
+.job {
+color: white;
+background-color:  rgb(123, 106, 106, 0.3);
+}
+
+.job-post-text {
+  color: white;
+}
+
+@media screen and(mid-width: 991px) {
+  #job-img {
+    max-width: 25%;
+  }
+}
+
+#new-job-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  margin: 12.5rem;
+}
+
+.job-box {
+  width: 30rem;
+  height: 10rem;
+  margin-bottom: 3rem;
 }
 
 /* Fitting background video to page and rendering */
@@ -78,7 +159,12 @@ width: 70%;
   color: white;
 }
 
-#button {
+#enquiry-content-fill {
+  height: 8rem;
+  margin-bottom: 3rem;
+}
+
+.button {
   color: white;
   background-color: transparent;
   border: 2px solid #ffffff;
