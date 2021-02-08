@@ -39,7 +39,6 @@ export default function Navi() {
 		{loggedInUser ?
 		  <>
 		  <button onClick={handleSignOut}>Sign Out</button>    
-		  {/* <button onClick={() => history.push('/posts/new') }>Add Joke</button>     */}
 		  <span>{loggedInUser}</span>
 		  </>
 		:
