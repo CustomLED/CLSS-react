@@ -27,7 +27,7 @@ export default function Navi() {
 		<Nav className="mr-auto nav-fill w-100">
 		<NavLink exact to="/" className="nav-link">HOME</NavLink>
 		<NavLink to="/about" className="nav-link">ABOUT</NavLink>
-		<NavLink to="/gallery" className="nav-link">GALLERY</NavLink>
+		<NavLink to="/posts" className="nav-link">GALLERY</NavLink>
 		{loggedInUser ? 
 		<>
 		<NavLink to="/adminenquiries" className="nav-link">ENQUIRIES</NavLink>
@@ -45,7 +45,7 @@ export default function Navi() {
 		:
 		  <>
 		  {/* <button onClick={() => history.push('/register')}>Register</button> */}
-		  {/* <button onClick={() => history.push('/sign_in')}>Sign In</button> */}
+		  <button onClick={() => history.push('/sign_in')}>Sign In</button>
 		  </>
 		}
 		

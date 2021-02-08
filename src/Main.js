@@ -10,7 +10,6 @@ import {getEnquiries} from './Services/enquiryServices'
 import stateReducer from './utils/stateReducer'
 import {StateContext} from './utils/stateContext'
 import Home from "./Components/Home"
-import Gallery from "./Components/Gallery"
 import Contact from "./Components/Contact"
 import About from "./Components/About"
 import Adminenquiries from "./Components/Adminenquiries"
@@ -89,7 +88,7 @@ const Main = () => {
                   ) : (
                     <Redirect to exact path="/" />
                   )} */}
-                  <Route path="/gallery" component={Gallery}/>
+                  {/* <Route path="/gallery" component={Posts}/> */}
                   <Route path="/contact" component={EnquiryForm}/>
                   {/* <Route path="/contact" render={(props) => <EnquiryForm {...props} />} /> */}
                   {/* <PrivateRoute path="/adminenquiries">
@@ -107,7 +106,7 @@ const Main = () => {
 						      <Route exact path='/posts/update/:id' component={NewPost} />
                   <Route exact path="/post/:id" component={Post}/>
                   <Route path='/sign_in' component={SignIn}/>
-                  <Route path='/register' component={NewUser}/>
+                  {/* <Route path='/register' component={NewUser}/> */}
                 </div>
           </StateContext.Provider>
         </div>
