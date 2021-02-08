@@ -4,11 +4,12 @@ import {getPost, deletePost} from '../Services/postServices.js'
 import {useGlobalState} from '../utils/stateContext'
 
 export default function PostDetails() {
-	const [post,setPost] = useState(null)
+	const [post, setPost] = useState(null)
 	const {id} = useParams()
 	let history = useHistory()
-	const {store,dispatch} = useGlobalState()
+	const {dispatch, store} = useGlobalState()
 	const {loggedInUser} = store
+	
 	
 	useEffect(() => {
 		getPost(id)
@@ -21,10 +22,13 @@ export default function PostDetails() {
 	function handleDelete() {
 		deletePost(id)
 		.then(() => {
+			console.log(post)
 			dispatch({type: 'deletePost', data: id})
 			history.push('/posts')
 		})
 	}
+
+	
 	return (
 		<div>
 			<p>Job: {post.name}</p>			
@@ -36,7 +40,8 @@ export default function PostDetails() {
 			</>
 			:
 			<>
-			<p>no one logged in</p>
+			
+			<p>no one logged in </p>
 			</>
 			}
 		</div>

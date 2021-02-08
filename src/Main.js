@@ -3,7 +3,9 @@ import React,{useState, useReducer, useEffect} from 'react'
 import {
   Route,
   NavLink,
-  HashRouter
+  HashRouter,
+  BrowserRouter,
+  Redirect
 } from "react-router-dom"
 import {getPosts} from './Services/postServices'
 import {getEnquiries} from './Services/enquiryServices'
@@ -14,7 +16,6 @@ import Gallery from "./Components/Gallery"
 import Contact from "./Components/Contact"
 import About from "./Components/About"
 import Adminenquiries from "./Components/Adminenquiries"
-import EnquiryNew from "./Components/EnquiryNew"
 import Adminposts from "./Components/Adminposts"
 import Post from "./Components/Post"
 import Posts from "./Components/Posts"
@@ -41,6 +42,9 @@ const Main = () => {
   }
   
   const [store, dispatch] = useReducer(stateReducer,initialState)
+	// const {loggedInUser} = store
+
+  
 	useEffect(() => {
     getPosts()
 		.then((posts) => dispatch({type: 'setPosts', data: posts}))
@@ -52,12 +56,52 @@ const Main = () => {
 		.then((enquiries) => dispatch({type: 'setEnquiries', data: enquiries}))
 		.catch((error) => console.log(error))
   },[])
+  
+  return (
+    <BrowserRouter>
+        <div>
+          <StateContext.Provider value={{store,dispatch}}>
+            <BackgroundVideo />
+              <Navi/>
+                <div className="content">
+                  
+                  <Route exact path="/" component={Home}/>
+                  <Route path="/about" component={About}/>
+                  {/* {loggedInUser ? (
+                    <Route path="/about" component={About}/>
+                  ) : (
+                    <Redirect to exact path="/" />
+                  )} */}
+                  <Route path="/gallery" component={Gallery}/>
+                  <Route path="/contact" component={EnquiryForm}/>
+                  <Route exact path="/adminenquiries" component={Adminenquiries}/>
+                  <Route exact path='/adminenquiries/new' component={EnquiryForm} />
+						      <Route exact path='/adminenquiries/update/:id' component={EnquiryForm} />
+                  <Route exact path='/adminenquiries/:id' component={Enquiry}/>
+                  <Route path="/adminposts" component={Adminposts}/>
+                  <Route exact path="/posts" component={Posts}/>
+                  <Route exact path='/posts/new' component={NewPost} />
+						      <Route exact path='/posts/update/:id' component={NewPost} />
+                  <Route exact path="/post/:id" component={Post}/>
+                  <Route path='/sign_in' component={SignIn}/>
+                  <Route path='/register' component={NewUser}/>
+                </div>
+          </StateContext.Provider>
+        </div>
+      </BrowserRouter>
+
+    );
+}
+
+export default Main;
+
+
 
   //wrong syntax
   // useEffect(() => {
   //   getEnquiries()
-	// 	.then((enquiries) => dispatch({type: 'setEnquiries', data: enquiries}))
-	// 	.catch((error) => console.log(error))
+  // 	.then((enquiries) => dispatch({type: 'setEnquiries', data: enquiries}))
+  // 	.catch((error) => console.log(error))
   // },[])
 
   //kinda works but doesn't actully. doesn;t show posts
@@ -78,36 +122,3 @@ const Main = () => {
 //     .then((posts) => dispatch({type: 'setPosts', data: posts}))
 //      .catch(console.error)
 // }, [setPosts]);
-
-    return (
-    <HashRouter>
-        <div>
-          <StateContext.Provider value={{store,dispatch}}>
-            <BackgroundVideo />
-              <Navi/>
-                <div className="content">
-                  <Route exact path="/" component={Home}/>
-                  <Route path="/about" component={About}/>
-                  <Route path="/gallery" component={Gallery}/>
-                  <Route path="/contact" component={EnquiryForm}/>
-                  <Route exact path="/adminenquiries" component={Adminenquiries}/>
-                  <Route exact path='/adminenquiries/new' component={EnquiryForm} />
-						      <Route exact path='/adminenquiries/update/:id' component={EnquiryForm} />
-                  <Route exact path='/adminenquiries/:id' component={Enquiry}/>
-                  <Route path="/adminposts" component={Adminposts}/>
-                  <Route exact path="/posts" component={Posts}/>
-                  <Route exact path='/posts/new' component={NewPost} />
-						      <Route exact path='/posts/update/:id' component={NewPost} />
-                  <Route exact path="/post/:id" component={Post}/>
-                  <Route path='/sign_in' component={SignIn}/>
-                  <Route path='/register' component={NewUser}/>
-                </div>
-          </StateContext.Provider>
-        </div>
-      </HashRouter>
-
-    );
-}
-
- 
-export default Main;

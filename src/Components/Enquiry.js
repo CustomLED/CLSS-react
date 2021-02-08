@@ -1,15 +1,16 @@
-
-import React,{ useState,useEffect} from 'react'
-import {useParams,useHistory} from 'react-router-dom'
+import React,{ useState, useEffect} from 'react'
+import {useParams, useHistory} from 'react-router-dom'
 import {useGlobalState} from '../utils/stateContext'
-import {deleteEnquiry,getEnquiry} from '../Services/enquiryServices'
+import {deleteEnquiry, getEnquiry} from '../Services/enquiryServices'
 
 export default function EnquiryDetails() {
 	const [enquiry,setEnquiry] = useState(null)
 	const {id} = useParams()
 	let history = useHistory()
 	const {store,dispatch} = useGlobalState()
-	const {loggedInUser} = store
+    const {loggedInUser} = store
+    
+    
 	useEffect(() => {
 		getEnquiry(id)
 		.then((enquiry) => setEnquiry(enquiry))
@@ -22,7 +23,7 @@ export default function EnquiryDetails() {
 		deleteEnquiry(id)
 		.then(() => {
 			dispatch({type: 'deleteEnquiry', data: id})
-			history.push('/adminenquiries')
+			history.push('/Adminenquiries')
 		})
 	}
 	return (

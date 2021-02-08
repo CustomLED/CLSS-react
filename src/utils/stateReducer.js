@@ -19,7 +19,7 @@ export default function reducer (state, action) {
 			})
 			return {
 				...state,
-				post: updatedPosts
+				posts: updatedPosts
 			}
 		}
 		case 'updatePost': {
