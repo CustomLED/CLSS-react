@@ -10,7 +10,7 @@ export default function EnquiryDetails() {
 	const {store,dispatch} = useGlobalState()
     const {loggedInUser} = store
     
-    
+
 	useEffect(() => {
 		getEnquiry(id)
 		.then((enquiry) => setEnquiry(enquiry))
@@ -36,7 +36,7 @@ export default function EnquiryDetails() {
             <p>Description: {enquiry.description}</p>
 			{loggedInUser ?
 			<>
-				<button onClick={() => history.push(`/adminenquiries/update/${id}`)}>Update</button>
+				{/* <button onClick={() => history.push(`/adminenquiries/update/${id}`)}>Update</button> */}
 				<button onClick={handleDelete}>Delete</button>
 			</>
 			:

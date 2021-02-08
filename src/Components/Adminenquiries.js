@@ -9,7 +9,6 @@ export default function Enquiries() {
 	const {store} = useGlobalState()
     const {enquiries} = store
     if(!enquiries) return null
-    console.log(enquiries)
 
 	return  (
 		<div>

@@ -21,21 +21,20 @@ export default function Navi() {
 	}
 
 	return (
-        
 		<Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" fixed="top" className="header">
 		<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
 		<Navbar.Collapse id="responsive-navbar-nav">
 		<Nav className="mr-auto nav-fill w-100">
-		<Nav.Link><NavLink exact to="/" className="nav-link">HOME</NavLink></Nav.Link>
-		<Nav.Link><NavLink to="/about" className="nav-link">ABOUT</NavLink></Nav.Link>
-		<Nav.Link><NavLink to="/gallery" className="nav-link">GALLERY</NavLink></Nav.Link>
+		<NavLink exact to="/" className="nav-link">HOME</NavLink>
+		<NavLink to="/about" className="nav-link">ABOUT</NavLink>
+		<NavLink to="/gallery" className="nav-link">GALLERY</NavLink>
 		{loggedInUser ? 
 		<>
-		<Nav.Link><NavLink to="/adminenquiries" className="nav-link">ENQUIRIES</NavLink></Nav.Link>
-		<Nav.Link><NavLink to="/posts/new" className="nav-link">NEW POST</NavLink></Nav.Link>
+		<NavLink to="/adminenquiries" className="nav-link">ENQUIRIES</NavLink>
+		<NavLink to="/posts/new" className="nav-link">NEW POST</NavLink>
 		</>
 		: 
-		<Nav.Link><NavLink to="/contact" className="nav-link">CONTACT</NavLink></Nav.Link>
+		<NavLink to="/contact" className="nav-link">CONTACT</NavLink>
 		}
 		{loggedInUser ?
 		  <>

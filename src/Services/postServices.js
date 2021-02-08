@@ -21,7 +21,6 @@ export async function getPosts() {
     const response = await postAPI.get('/api/posts')
     console.log(response);
 	return response.data
-	// return Promise.resolve(jokes)
 }
 
 

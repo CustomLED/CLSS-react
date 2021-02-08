@@ -21,6 +21,8 @@ export default function EnquiryForm() {
     submitting: false,
     status: null
   })
+
+  const [edit, setEdit] = useState(false)
   
   const [formState, setFormState] = useState(initialFormState)
   const {dispatch} = useGlobalState()
@@ -32,12 +34,22 @@ export default function EnquiryForm() {
       [event.target.name]: event.target.value
     })
   }
+
+  // useEffect(() => {
+    // fetching to enquiry db w/ :id
+    // if it exists, set form data and setEdit to true
+
+  // }, [])
   
   function submitForm(event) {
       // event.preventDefault();
+      // if (edit == true) {
+      //   // fetch to db to edit enquiry
+      //   // .then return
+      // }
       createEnquiry({...formState})
       .then((post) => {		
-        dispatch({type: '/addEnquiries', data: post});
+        dispatch({type: 'addEnquiries', data: post});
       
         history.push('/')
       })
@@ -98,7 +110,7 @@ export default function EnquiryForm() {
         <input type="tel" name="phone_number" className="input-fill col-sm-6" value={formState.phone_number} onChange={handleChange}/>
         <label id="enquiry-content" className="contact-title col-sm-6">Enquiry:</label>
         <input type="text" name="description" className="input-fill col-sm-6" value={formState.description} onChange={handleChange}/>
-        <div id="button-parent" class="offset-sm-6"><button id="button" className="" onClick={submitForm}>Submit</button></div>
+        <div id="button-parent" className="offset-sm-6"><button id="button" className="" onClick={submitForm}>Submit</button></div>
         {serverState.status && (
           <p className={!serverState.status.ok ? "errorMsg" : ""}>
             {serverState.status.msg}

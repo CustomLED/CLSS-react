@@ -16,14 +16,9 @@ import Gallery from "./Components/Gallery"
 import Contact from "./Components/Contact"
 import About from "./Components/About"
 import Adminenquiries from "./Components/Adminenquiries"
-import Adminposts from "./Components/Adminposts"
 import Post from "./Components/Post"
 import Posts from "./Components/Posts"
-import postAPI from "./Services/postServices"
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
 import BackgroundVideo from "./BackgroundVideo.jsx"
-import {signOut} from './Services/authServices'
 import Navi from './Components/Navi'
 import SignIn from './Components/SignIn'
 import NewUser from './Components/NewUser'
@@ -31,7 +26,8 @@ import NewPost from './Components/NewPost'
 import EnquiryForm from './Components/EnquiryForm'
 import Enquiry from './Components/Enquiry'
 
- 
+
+
 
 const Main = () => {
 	const initialState = {
@@ -42,7 +38,28 @@ const Main = () => {
   }
   
   const [store, dispatch] = useReducer(stateReducer,initialState)
-	// const {loggedInUser} = store
+  // const {loggedInUser} = store
+  
+   function PrivateRoute({ children, ...rest }) {
+    let auth = store.loggedInUser;
+    return (
+      <Route
+        {...rest}
+        render={({ location }) =>
+          auth ? (
+            children
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/",
+                state: { from: location }
+              }}
+            />
+          )
+        }
+      />
+    );
+  }
 
   
 	useEffect(() => {
@@ -66,7 +83,9 @@ const Main = () => {
                 <div className="content">
                   
                   <Route exact path="/" component={Home}/>
-                  <Route path="/about" component={About}/>
+                  <PrivateRoute path="/about">
+                    <About />
+                  </PrivateRoute> 
                   {/* {loggedInUser ? (
                     <Route path="/about" component={About}/>
                   ) : (
@@ -74,11 +93,17 @@ const Main = () => {
                   )} */}
                   <Route path="/gallery" component={Gallery}/>
                   <Route path="/contact" component={EnquiryForm}/>
+                  {/* <Route path="/contact" render={(props) => <EnquiryForm {...props} />} /> */}
+                  {/* <PrivateRoute path="/adminenquiries">
+                    <Adminenquiries />
+                  </PrivateRoute> */}
                   <Route exact path="/adminenquiries" component={Adminenquiries}/>
                   <Route exact path='/adminenquiries/new' component={EnquiryForm} />
-						      <Route exact path='/adminenquiries/update/:id' component={EnquiryForm} />
+						      {/* <Route exact path='/adminenquiries/update/:id' component={EnquiryForm} /> */}
+                  {/* <PrivateRoute path="/adminenquiries/:id">
+                    <Enquiry />
+                  </PrivateRoute> */}
                   <Route exact path='/adminenquiries/:id' component={Enquiry}/>
-                  <Route path="/adminposts" component={Adminposts}/>
                   <Route exact path="/posts" component={Posts}/>
                   <Route exact path='/posts/new' component={NewPost} />
 						      <Route exact path='/posts/update/:id' component={NewPost} />
