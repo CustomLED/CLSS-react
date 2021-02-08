@@ -19,12 +19,6 @@ a:visited {
 }
 
 
-#home-table {
-  background-color:  rgb(123, 106, 106, 0.3);
-  margin: 10rem;
-}
-
-
 #home-img {
   padding: 2.5rem;
   margin: auto;
@@ -32,6 +26,28 @@ a:visited {
   height: 50%;
   width: 50%;
 }
+
+@media only screen and (min-width: 480px) {
+#home-table {
+  background-color:  rgb(123, 106, 106, 0.3);
+  margin: 10rem;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  #home-table {
+    margin-top: 10rem;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    background-color: none;
+  }
+  #home-img {
+    height: 250px;
+    width: 450px;
+  }
+}
+
 
 
 #about-parent {

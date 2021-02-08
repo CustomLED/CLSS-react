@@ -32,7 +32,7 @@ export default class EnquiryForm extends React.Component {
         <label className="contact-title col-sm-6">Phone:</label>
         <input type="tel" name="phone_number" className="input-fill col-sm-6" />
         <label id="enquiry-content" className="contact-title col-sm-6">Enquiry:</label>
-        <input type="text" name="description" className="input-fill col-sm-6" id="enquiry-content-fill"/>
+        <textarea type="text" name="description" className="input-fill col-sm-6" id="enquiry-content-fill"/>
         {status === "SUCCESS" ? <p style={{color: "white"}}>Thanks! We will get back to you shortly!</p> : <div id="button-parent" class="offset-sm-6"><button className="button">Submit</button></div>}
         {status === "ERROR" && <p style={{color: "white"}}>Oh no! There was an error.</p>}
         </Row>
