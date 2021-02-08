@@ -1,3 +1,5 @@
+
+
 /* Navbar links*/
 
 .header a:link,
@@ -16,18 +18,21 @@ a:visited {
   font-family: 'Oxygen', sans-serif;
 }
 
+
 #home-table {
   background-color:  rgb(123, 106, 106, 0.3);
-  margin: 5rem;
+  margin: 10rem;
 }
 
+
 #home-img {
-padding: 2.5rem;
-margin: auto;
-display: block;
-height: 70%;
-width: 70%;
+  padding: 2.5rem;
+  margin: auto;
+  display: block;
+  height: 50%;
+  width: 50%;
 }
+
 
 #about-parent {
   background-color:  rgb(123, 106, 106, 0.3);
@@ -76,7 +81,9 @@ color: white;
 background-color:  rgb(123, 106, 106, 0.3);
 }
 
-
+.job-post-text {
+  color: white;
+}
 
 @media screen and(mid-width: 991px) {
   #job-img {

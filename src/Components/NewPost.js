@@ -65,7 +65,6 @@ export default function NewPost() {
 			{/* <select name='category_id' value={formState.category_id} onChange={handleChange}> */}
 				{/* {categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
 			</select> */}
-			{/* <NewImageForm value={formState.name} onChange={handleChange}/> */}
 			<label className="job">Job Name:</label>
 			<textarea className="job-box" type='text' name='name' value={formState.name} onChange={handleChange}></textarea>
 			<label className="job">Job Description:</label>
