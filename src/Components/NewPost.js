@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import {useHistory, useParams} from 'react-router-dom'
 import {createPost, getPost, updatePost} from '../Services/postServices'
 import {useGlobalState} from '../utils/stateContext'
-// import NewImageForm from './NewImageForm'
 
 export default function NewPost() {
 	const initialFormState = {
@@ -40,11 +39,14 @@ export default function NewPost() {
 
 	function handleClick(event) {
 		event.preventDefault()
+		if (validateForm() == false) {
+			alert("Please fill all fields correctly")
+			return
+		  }
 		if(id) {
 			updatePost( {id: id, ...formState})
 			.then(() => {
 				dispatch({type: 'updatePost', data: {id: id, ...formState}})
-				// history.push(`/post/${id}`)
 				history.push('/posts')
 			})
 		}
@@ -58,12 +60,20 @@ export default function NewPost() {
 			.catch((error) => console.log(error))
 		}
 	}
+
+	function validateForm() {
+		console.log(formState)
+		if (formState.name == ""){
+		  return false
+		}
+		if (formState.text == ""){
+			return false
+		  }
+		return true
+	}
+
 	return (
 		<div id ="new-job-table">
-			{/* <label>Category:</label> */}
-			{/* <select name='category_id' value={formState.category_id} onChange={handleChange}> */}
-				{/* {categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
-			</select> */}
 			<label className="job">Job Name:</label>
 			<textarea className="job-box" type='text' name='name' value={formState.name} onChange={handleChange}></textarea>
 			<label className="job">Job Description:</label>

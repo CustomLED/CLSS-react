@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-// import {Panel,Label, Input, Button} from './Styled'
 import {signUp} from '../Services/authServices'
 import {useGlobalState} from '../utils/stateContext'
 

@@ -3,7 +3,6 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {useGlobalState} from '../utils/stateContext'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
 import CardDeck from 'react-bootstrap/CardDeck'
 
 
@@ -17,8 +16,8 @@ export default function Enquiries() {
            {enquiries.map((enquiries,index) => {
 				return (
 
-					<div id="enquiry-list" className="d-flex justify-content-center">
-					<CardDeck key={enquiries.id}>
+					<div id="enquiry-list" className="d-flex justify-content-center" key={enquiries.id}>
+					<CardDeck>
 						<Card>
 							<Card.Title>{enquiries.organisation}</Card.Title>
 							<Link to={`/adminenquiries/${enquiries.id}`} id="enquiry-list-link">
