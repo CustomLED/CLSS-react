@@ -8,9 +8,11 @@ export default function reducer (state, action) {
 			}
 		}
 		case 'addPost': {
+			console.log("action.data")
+			console.log(action.data)
 			return {
 				...state,
-				posts: [action.data, ...state.posts]
+				posts: [...state.posts, action.data]
 			}
 		}
 		case 'deletePost': {

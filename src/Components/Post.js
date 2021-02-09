@@ -33,7 +33,7 @@ export default function PostDetails() {
 		<Jumbotron fluid id="job-table" className="d-flex flex-column align-items-center">
 			<h1 className="job-post-text">{post.name}</h1>			
 			<p className="job-post-text">{post.text}</p>
-			<img id="job-img" className="d-inline-flex" src="https://res.cloudinary.com/custom-led-screen-solutions/image/upload/v1612589056/CLSS/CA9550F6-C742-4C1A-B307-FC965A14917A_1_105_c_dmaa1d.jpg" alt="showgirls"/>
+			<img id="job-img" className="d-inline-flex" src={post.url}  alt="image"/>
 			{loggedInUser ?
 			<>
 				<button onClick={() => history.push(`/posts/update/${id}`)}>Update</button>

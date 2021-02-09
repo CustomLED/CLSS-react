@@ -1,7 +1,6 @@
 // Database functions.
 import postAPI from '../Components/config/api'
 
-
 export async function getPosts() {
     const response = await postAPI.get('/api/posts')
 	return response.data
@@ -15,8 +14,16 @@ export async function getPost(id) {
 
 
 export async function createPost(post) {
-	const response = await postAPI.post('/api/posts', post)
-	return response.data
+	const response = await fetch("http://localhost:3000/api/posts", {
+		method: "POST",
+		body: post,
+	})
+	const json = await response.json()
+	return json
+
+// 	const response = await postAPI.post('/api/posts', post)
+// 	return response.data
+
 	
 }
 

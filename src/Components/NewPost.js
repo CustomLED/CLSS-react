@@ -1,7 +1,15 @@
+import axios from 'axios'
 import React, {useState, useEffect} from 'react'
+import { useRef } from 'react'
 import {useHistory, useParams} from 'react-router-dom'
 import {createPost, getPost, updatePost} from '../Services/postServices'
 import {useGlobalState} from '../utils/stateContext'
+import api from "./config/api.js"
+
+
+
+const useForceUpdate = () => useState()[1];
+
 
 export default function NewPost() {
 	const initialFormState = {
@@ -37,12 +45,21 @@ export default function NewPost() {
 		
 	}
 
-	function handleClick(event) {
+	function handleSubmit(event) {
 		event.preventDefault()
+		const fileInput = document.querySelector("#file-upload")
+		const formData = new FormData()
+		formData.append('file', fileInput.files[0])
+		Object.entries(formState).forEach(pair => {
+			formData.append(`${pair[0]}`, pair[1])
+		})
+		
+
 		if (validateForm() == false) {
 			alert("Please fill all fields correctly")
 			return
 		  }
+
 		if(id) {
 			updatePost( {id: id, ...formState})
 			.then(() => {
@@ -51,9 +68,8 @@ export default function NewPost() {
 			})
 		}
 		else {
-			
-			createPost({...formState})
-			.then((post) => {		
+			createPost(formData)
+			.then((post) => {
 				dispatch({type: 'addPost', data: post})
 				history.push('/posts')
 			})
@@ -73,12 +89,17 @@ export default function NewPost() {
 	}
 
 	return (
-		<div id ="new-job-table">
+		<form onSubmit={handleSubmit} id ="new-job-table">
 			<label className="job">Job Name:</label>
 			<textarea className="job-box" type='text' name='name' value={formState.name} onChange={handleChange}></textarea>
 			<label className="job">Job Description:</label>
 			<textarea className="job-box" type='text' name='text' value={formState.text} onChange={handleChange}></textarea>
-			<button className="button" onClick={handleClick}>{id ? 'Update' : 'Create'}</button>
-		</div>
+			<label>Image</label>
+			<input 
+				type="file"
+				id="file-upload"
+				/>
+			<button className="button">{id ? 'Update' : 'Create'}</button>
+		</form>
 	)
 }
