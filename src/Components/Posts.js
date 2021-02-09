@@ -19,6 +19,7 @@ export default function Posts() {
            {posts.map((post,index) => {
 				return post ? (
 					<div id="posts-div" className="d-flex justify-content-center" key={post.id}>
+
                     <CardDeck id="posts-card" style={{width: '20rem'}}>
 						<Card style={{width: '10rem'}, {margin: '2rem'}} id="card-child">
 						<Card.Img variant="top" src={post.url} />

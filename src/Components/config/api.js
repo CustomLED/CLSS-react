@@ -5,8 +5,7 @@ const postAPI = axios.create({
 });
 
 postAPI.interceptors.request.use((req) => {
-    const token = sessionStorage.getItem('token');
-    console.log("set token header:", token);
+    const token =sessionStorage.getItem('token');
     if (token) {
         req.headers["Authorization"] = `Bearer ${token}`
     }

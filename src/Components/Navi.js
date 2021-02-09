@@ -43,7 +43,6 @@ export default function Navi() {
 		  </>
 		:
 		  <>
-		  {/* <button onClick={() => history.push('/register')}>Register</button> */}
 		  <button onClick={() => history.push('/sign_in')}>Sign In</button>
 		  </>
 		}

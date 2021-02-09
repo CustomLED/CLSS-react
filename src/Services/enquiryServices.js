@@ -1,9 +1,8 @@
-// This page seeds all the dummy data which will become a rails api call.
+// Enquiry database functions
 import postAPI from '../Components/config/api'
 
 export async function getEnquiries() {
     const response = await postAPI.get('/api/enquiries')
-    console.log(response);
 	return response.data
 }
 
@@ -14,7 +13,6 @@ export async function getEnquiry(id) {
 
 export async function createEnquiry(post) {
 	const response = await postAPI.post('/api/enquiries', post)
-	console.log(response)
 	return response.data
 	
 }
@@ -26,7 +24,6 @@ export async function deleteEnquiry(id) {
 
 export async function updateEnquiry(data) {
 	const response = await postAPI.put(`/api/enquiries/${data.id}`, {first_name: data.first_name, last_name: data.last_name, organisation: data.organisation, email: data.email, phone_number: data.phone_number, description: data.description, admin_id: data.admin_id})
-	console.log(response)
 	return response.data
 }
 

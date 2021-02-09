@@ -36,12 +36,10 @@ export default function EnquiryDetails() {
             <h2 className="new-enquiry-text">Description:</h2><h3 className="new-enquiry-text"> {enquiry.description}</h3>
 			{loggedInUser ?
 			<>
-				{/* <button onClick={() => history.push(`/adminenquiries/update/${id}`)}>Update</button> */}
 				<button onClick={handleDelete}>Delete</button>
 			</>
 			:
 			<>
-			<p>no one logged in</p>
 			</>
 			}
 		</div>

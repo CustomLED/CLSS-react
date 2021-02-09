@@ -5,7 +5,8 @@ import {useHistory, useParams} from 'react-router-dom'
 import {createPost, getPost, updatePost} from '../Services/postServices'
 import {useGlobalState} from '../utils/stateContext'
 import api from "./config/api.js"
-// import NewImageForm from './NewImageForm'
+
+
 
 const useForceUpdate = () => useState()[1];
 
@@ -53,11 +54,16 @@ export default function NewPost() {
 			formData.append(`${pair[0]}`, pair[1])
 		})
 		
+
+		if (validateForm() == false) {
+			alert("Please fill all fields correctly")
+			return
+		  }
+
 		if(id) {
 			updatePost( {id: id, ...formState})
 			.then(() => {
 				dispatch({type: 'updatePost', data: {id: id, ...formState}})
-				// history.push(`/post/${id}`)
 				history.push('/posts')
 			})
 		}
@@ -70,6 +76,18 @@ export default function NewPost() {
 			.catch((error) => console.log(error))
 		}
 	}
+
+	function validateForm() {
+		console.log(formState)
+		if (formState.name == ""){
+		  return false
+		}
+		if (formState.text == ""){
+			return false
+		  }
+		return true
+	}
+
 	return (
 		<form onSubmit={handleSubmit} id ="new-job-table">
 			<label className="job">Job Name:</label>

@@ -1,18 +1,14 @@
-// This page seeds all the dummy data which will be changed to pull data from the rails api.
+// Database functions.
 import postAPI from '../Components/config/api'
-
-
 
 export async function getPosts() {
     const response = await postAPI.get('/api/posts')
-    console.log(response);
 	return response.data
 }
 
 
 export async function getPost(id) {
 	const response = await postAPI.get(`/api/posts/${id}`)
-	console.log(response.data)
     return response.data
 }
 
@@ -24,6 +20,10 @@ export async function createPost(post) {
 	})
 	const json = await response.json()
 	return json
+
+// 	const response = await postAPI.post('/api/posts', post)
+// 	return response.data
+
 	
 }
 
@@ -34,7 +34,6 @@ export async function deletePost(id) {
 
 export async function updatePost(data) {
 	const response = await postAPI.put(`/api/posts/${data.id}`, {name: data.name, text: data.text, admin_id: data.admin_id})
-	console.log(response)
 	return response.data
 }
 

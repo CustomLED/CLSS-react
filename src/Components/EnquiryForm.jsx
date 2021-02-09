@@ -22,7 +22,6 @@ export default function EnquiryForm() {
     status: null
   })
 
-  // const [edit, setEdit] = useState(false)
   
   const [formState, setFormState] = useState(initialFormState)
   const {dispatch} = useGlobalState()
@@ -34,36 +33,29 @@ export default function EnquiryForm() {
       [event.target.name]: event.target.value
     })
   }
-
-  // useEffect(() => {
-    // fetching to enquiry db w/ :id
-    // if it exists, set form data and setEdit to true
-
-  // }, [])
   
   function submitForm(event) {
-      // event.preventDefault();
-      // if (edit == true) {
-      //   // fetch to db to edit enquiry
-      //   // .then return
-      // }
+    event.preventDefault();
+      if (validateForm() == false) {
+        alert("Please fill all fields correctly")
+        return
+      }
       createEnquiry({...formState})
       .then((post) => {		
-        dispatch({type: 'addEnquiries', data: post});
-      
+        dispatch({type: 'addEnquiries', data: post});    
         history.push('/')
       })
       .then(handleOnSubmit(event))
       .catch((error) => console.log(error))
-    }
     
-    const handleServerResponse = (ok, msg, form) => {
+  }
+    
+  const handleServerResponse = (ok, msg, form) => {
     setServerState({
       submitting: false,
       status: { ok, msg }
     });
     if (ok) {
-      console.log("formreset")
       form.reset();
     } 
   }
@@ -75,10 +67,9 @@ export default function EnquiryForm() {
     axios({
       method: "post",
       url: "https://formspree.io/f/mgepdgee",
-      // url: "https://formspree.io/f/xwkwrkyr",
       data: formState
     })
-      .then(r => { console.log("posted");
+      .then(r => {
     handleServerResponse(true, "Thanks!", form);
   })
   .catch(r => {
@@ -86,9 +77,34 @@ export default function EnquiryForm() {
       });
     };
     
+  function validateForm() {
+    console.log(formState)
+    if (formState.first_name == ""){
+      return false
+    }
+    if (formState.last_name == ""){
+      return false
+    }
+    if (formState.organisation == ""){
+      return false
+    }
+    if (formState.email == ""){
+      return false
+    }
+    if (formState.phone_number == ""){
+      return false
+    }
+    if (isNaN(parseInt(formState.phone_number))){
+      return false
+    }
+    if (formState.description == ""){
+      return false
+    }
+    return true
+  }
     
     return (
-      <form>
+      <form name="myForm" onSubmit={submitForm}>
         <h1 id="enquiry-title">ENQUIRIES</h1>
         <div id="enquiry-table" className="container-fluid">
           <Row md={2} className="col p-3">
@@ -104,7 +120,7 @@ export default function EnquiryForm() {
         <input type="tel" name="phone_number" className="input-fill col-sm-6" value={formState.phone_number} onChange={handleChange}/>
         <label id="enquiry-content" className="contact-title col-sm-6">Enquiry:</label>
         <textarea type="text" id="enquiry-content-fill" name="description" className="input-fill col-sm-6" value={formState.description} onChange={handleChange}/>
-        <div id="button-parent" className="offset-sm-6"><button id="button" className="" onClick={submitForm}>Submit</button></div>
+        <div id="button-parent" className="offset-sm-6"><button id="button" className="">Submit</button></div>
         {serverState.status && (
           <p className={!serverState.status.ok ? "errorMsg" : ""}>
             {serverState.status.msg}
