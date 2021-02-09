@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 const postAPI = axios.create({
-    baseURL: 'http://clss-api.herokuapp.com',
+    baseURL: 'http://localhost:3000',
 });
 
 postAPI.interceptors.request.use((req) => {
-    const token =sessionStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     console.log("set token header:", token);
     if (token) {
         req.headers["Authorization"] = `Bearer ${token}`
