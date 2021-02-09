@@ -23,7 +23,6 @@ export default function PostDetails() {
 	function handleDelete() {
 		deletePost(id)
 		.then(() => {
-			console.log(post)
 			dispatch({type: 'deletePost', data: id})
 			history.push('/posts')
 		})

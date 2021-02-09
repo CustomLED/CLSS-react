@@ -1,4 +1,3 @@
-// import React, { Component } from "react";
 import React,{useReducer, useEffect} from 'react'
 import {
   Route,
@@ -10,7 +9,6 @@ import {getEnquiries} from './Services/enquiryServices'
 import stateReducer from './utils/stateReducer'
 import {StateContext} from './utils/stateContext'
 import Home from "./Components/Home"
-import Contact from "./Components/Contact"
 import About from "./Components/About"
 import Adminenquiries from "./Components/Adminenquiries"
 import Post from "./Components/Post"
@@ -18,7 +16,6 @@ import Posts from "./Components/Posts"
 import BackgroundVideo from "./BackgroundVideo.jsx"
 import Navi from './Components/Navi'
 import SignIn from './Components/SignIn'
-import NewUser from './Components/NewUser'
 import NewPost from './Components/NewPost'
 import EnquiryForm from './Components/EnquiryForm'
 import Enquiry from './Components/Enquiry'
@@ -35,7 +32,6 @@ const Main = () => {
   }
   
   const [store, dispatch] = useReducer(stateReducer,initialState)
-  // const {loggedInUser} = store
   
    function PrivateRoute({ children, ...rest }) {
     let auth = store.loggedInUser;
@@ -82,29 +78,22 @@ const Main = () => {
                   <Route exact path="/" component={Home}/>
                   <Route path="/about" component={About}/>
                   <Route path="/contact" component={EnquiryForm}/>
-                  {/* <Route path="/contact" render={(props) => <EnquiryForm {...props} />} /> */}
                   <PrivateRoute exact path="/adminenquiries">
                     <Adminenquiries />
                   </PrivateRoute>
-                  {/* <Route exact path="/adminenquiries" component={Adminenquiries}/> */}
                   <Route exact path="/adminenquiries/new" component={EnquiryForm} />
-						      {/* <Route exact path='/adminenquiries/update/:id' component={EnquiryForm} /> */}
                   <PrivateRoute exact path="/adminenquiries/:id">
                     <Enquiry />
                   </PrivateRoute>
-                  {/* <Route path='/adminenquiries/:id' component={Enquiry}/> */}
                   <Route exact path="/posts" component={Posts}/>
                   <PrivateRoute exact path="/posts/new">
                     <NewPost />
                   </PrivateRoute>
-                  {/* <Route exact path='/posts/new' component={NewPost} /> */}
                   <PrivateRoute exact path="/posts/update/:id">
                     <NewPost />
                   </PrivateRoute>
-						      {/* <Route exact path='/posts/update/:id' component={NewPost} /> */}
                   <Route exact path="/post/:id" component={Post}/>
                   <Route path='/sign_in' component={SignIn}/>
-                  {/* <Route path='/register' component={NewUser}/> */}
                 </div>
           </StateContext.Provider>
         </div>
@@ -114,8 +103,3 @@ const Main = () => {
 }
 
 export default Main;
-
-
-// {/* <PrivateRoute path="/about">
-//                     <About />
-//                   </PrivateRoute>  */}

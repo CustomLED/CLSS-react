@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-// import {Button, Label, Input} from './Styled'
 import {signIn} from '../Services/authServices'
 import {useGlobalState} from '../utils/stateContext'
 
