@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const postAPI = axios.create({
-    baseURL: 'http://clss-api.herokuapp.com/api'
+    baseURL: 'http://clss-api.herokuapp.com/'
 });
 
 postAPI.interceptors.request.use((req) => {
