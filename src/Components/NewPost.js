@@ -1,10 +1,8 @@
-import axios from 'axios'
 import React, {useState, useEffect} from 'react'
-import { useRef } from 'react'
 import {useHistory, useParams} from 'react-router-dom'
 import {createPost, getPost, updatePost} from '../Services/postServices'
 import {useGlobalState} from '../utils/stateContext'
-import api from "./config/api.js"
+
 
 
 
@@ -47,6 +45,10 @@ export default function NewPost() {
 
 	function handleSubmit(event) {
 		event.preventDefault()
+		if (validateForm() == false) {
+			alert("Please fill all fields correctly")
+			return
+		  }
 		const fileInput = document.querySelector("#file-upload")
 		const formData = new FormData()
 		formData.append('file', fileInput.files[0])
@@ -54,11 +56,6 @@ export default function NewPost() {
 			formData.append(`${pair[0]}`, pair[1])
 		})
 		
-
-		if (validateForm() == false) {
-			alert("Please fill all fields correctly")
-			return
-		  }
 
 		if(id) {
 			updatePost( {id: id, ...formState})
