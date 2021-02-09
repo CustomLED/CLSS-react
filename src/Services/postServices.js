@@ -14,7 +14,7 @@ export async function getPost(id) {
 
 
 export async function createPost(post) {
-	const response = await fetch("http://localhost:3000/api/posts", {
+	const response = await fetch("http://clss-api.herokuapp.com/api/posts", {
 		method: "POST",
 		body: post,
 	})
