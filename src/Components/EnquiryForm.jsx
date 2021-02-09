@@ -88,12 +88,7 @@ export default function EnquiryForm() {
     
     
     return (
-      // <div onSubmit={form}>
-      <form
-      // onSubmit={handleOnSubmit}
-      // action="https://formspree.io/f/mgepdgee"
-      // method="POST"
-      >
+      <form>
         <h1 id="enquiry-title">ENQUIRIES</h1>
         <div id="enquiry-table" className="container-fluid">
           <Row md={2} className="col p-3">
@@ -118,6 +113,5 @@ export default function EnquiryForm() {
         </Row>
         </div>
       </form>
-    // </div>
     )
   }

@@ -1,7 +1,6 @@
 
 
 /* Navbar links*/
-
 .header a:link,
 a:visited {
   text-decoration: none;
@@ -14,11 +13,12 @@ a:visited {
   transition: 0.5s;
 }
 
+/* font family for various elements */
 .nav-link, .about-text, .contact-title, #button {
   font-family: 'Oxygen', sans-serif;
 }
 
-
+/* Styles for home section and image */
 #home-img {
   padding: 2.5rem;
   margin: auto;
@@ -48,8 +48,7 @@ a:visited {
   }
 }
 
-
-
+/* Styles for about section, text and div */
 #about-parent {
   background-color:  rgb(123, 106, 106, 0.3);
   text-align: center;
@@ -61,14 +60,7 @@ a:visited {
   color: white;
 }
 
-#posts-div{
-
-}
-
-#posts-card {
-
-}
-
+/* Styles for Gallery items */
 #card-child {
   color: white;
   border-color: rgb(24, 22, 22);
@@ -88,6 +80,7 @@ a:visited {
   color: black;
 }
 
+/* Styles for single post sections, referred to as 'jobs' */
 #job-table {
   background-color:  rgb(123, 106, 106, 0.3);
 }
@@ -135,14 +128,11 @@ background-color:  rgb(123, 106, 106, 0.3);
   padding-top: .5rem;
 }
 
+/* Styles for enquiry section */
 #enquiry-title {
   color: white;
   text-align: center;
 }
-
-/* #enquiry-table {
-
-} */
 
 .contact-title {
   color: white;
@@ -169,4 +159,27 @@ background-color:  rgb(123, 106, 106, 0.3);
   background-color: transparent;
   border: 2px solid #ffffff;
   text-transform: uppercase;
+}
+
+/* Styles for enquiry items (readable to admin only) */
+
+#new-enquiry-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:rgb(123, 106, 106, 0.3)
+}
+
+.new-enquiry-text {
+  color: white;
+}
+
+#enquiry-list {
+  margin: 5rem;
+}
+
+#enquiry-list-body {
+text-align: center;
+color: white;
 }
