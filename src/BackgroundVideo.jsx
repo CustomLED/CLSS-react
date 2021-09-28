@@ -17,7 +17,9 @@ export default class BackgroundVideo extends React.Component {
                 transition: "opacity, 2s ease-in-out"
             }}
             >
-                <iframe src="https://www.youtube.com/embed/T4W4LXWRyTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <source
+                src="https://dl.dropboxusercontent.com/s/20x0oc0u26otoqe/clss-background-fade-v.mp4??raw=1"
+                type="video/mp4" />
             </video>
         )
     }
