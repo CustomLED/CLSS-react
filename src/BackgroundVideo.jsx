@@ -18,7 +18,7 @@ export default class BackgroundVideo extends React.Component {
             }}
             >
                 <source
-                src="https://res.cloudinary.com/custom-led-screen-solutions/video/upload/v1612066803/CLSS/CLSS-background-2_t5b7do.mp4"
+                src="https://www.dropbox.com/s/20x0oc0u26otoqe/clss-background-fade-v.mp4?dl=0p4"
                 type="video/mp4" />
             </video>
         )
