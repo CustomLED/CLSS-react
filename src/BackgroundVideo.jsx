@@ -17,9 +17,7 @@ export default class BackgroundVideo extends React.Component {
                 transition: "opacity, 2s ease-in-out"
             }}
             >
-                <source
-                src="https://www.youtube.com/embed/T4W4LXWRyTE?autoplay=1&mute=1&enablejsapi=1"
-                type="video/mp4" />
+                <iframe src="https://www.youtube.com/embed/T4W4LXWRyTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </video>
         )
     }
