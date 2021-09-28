@@ -7,7 +7,7 @@ class Home extends Component {
     return (
       <div id="home-table">
         <Link to="/about">
-        <img src="https://www.dropbox.com/s/368nuiuekyfi6m6/Untitled%20design%20%288%29.png?dl=0" alt="CLSS-logo" id="home-img" />
+        <img src="https://www.dropbox.com/s/368nuiuekyfi6m6/Untitled%20design%20%288%29.png?raw=1" alt="CLSS-logo" id="home-img" />
         </Link>
       </div>
     );
