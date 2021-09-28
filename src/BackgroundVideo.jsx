@@ -18,7 +18,7 @@ export default class BackgroundVideo extends React.Component {
             }}
             >
                 <source
-                src="https://www.dropbox.com/s/20x0oc0u26otoqe/clss-background-fade-v.mp4??raw=1p4"
+                src="https://www.youtube.com/embed/T4W4LXWRyTE"
                 type="video/mp4" />
             </video>
         )
