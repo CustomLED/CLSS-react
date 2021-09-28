@@ -18,7 +18,7 @@ export default class BackgroundVideo extends React.Component {
             }}
             >
                 <source
-                src="https://www.youtube.com/embed/T4W4LXWRyTE"
+                src="https://www.youtube.com/embed/T4W4LXWRyTE?autoplay=1&mute=1&enablejsapi=1"
                 type="video/mp4" />
             </video>
         )
